@@ -1,0 +1,64 @@
+
+---------- Installation d'Eludis -------
+
+Les modifications apportées aux fichiers de la distribution SPIP 1.9.2b [9381]
+
+1. Modififier le formulaire : 'dist/formulaires/recherche.html'
+		<!-- <label for="recherche"><:info_rechercher:></label> -->
+
+2. Modifier le formulaire : 'dist/formulaires/forum.html'
+	a. Mettre en commentaire et en hidden les informations sour l'auteur pour interdire les messages anonymes
+	----------------********----------------
+<!--	<fieldset>
+	<legend><:forum_qui_etes_vous:></legend>
+	<p><label for="auteur"><:forum_votre_nom:></label> -->
+	<input type="hidden" class="forml" name="auteur" id="auteur" value="#ENV{auteur}" size="40"[ readonly="(#ENV{readonly})"] /></p>
+	<!-- <p><label for="email_auteur"><:forum_votre_email:></label> -->
+	<input type="hidden" class="forml" name="email_auteur" id="email_auteur" value="#ENV{email_auteur}" size="40"[ readonly="(#ENV{readonly})"] /></p>
+<!--	</fieldset> -->
+
+<!--	[(#REM) Piege a robots spammeurs ]
+	<p style='display:none;'><label for="nobot"><:antispam_champ_vide:></label>
+	<input type="text" name="nobot" id="nobot" value="#ENV{nobot}" size="10" /></p>
+-->
+	----------------********----------------
+	b.Déplacement du groupe ci-dessous pour mettre les mots clefs après le texte
+	----------------********----------------
+<BOUCLE_G(GROUPES_MOTS)
+	{forum=(#CONFIG{mots_cles_forums}|choixsiegal{oui,oui,jamais})}
+	{articles==(#ENV{table}|choixsiegal{articles,'oui','.*'})}
+	{breves==(#ENV{table}|choixsiegal{breves,'oui','.*'})}
+	{rubriques==(#ENV{table}|choixsiegal{rubriques,'oui','.*'})}
+	{syndic==(#ENV{table}|choixsiegal{syndic,'oui','.*'})}
+>
+[(#ID_GROUPE|in_any{#ENV**{ajouter_groupe},' '})
+	<fieldset>
+	<legend><:mots_clefs:> : #TITRE</legend>
+		<INCLURE{fond=formulaires/choix_mots}{id_groupe}{ajouter_mot}{unseul}>
+	</fieldset>
+]</BOUCLE_G>
+
+[(#ENV**{afficher_texte}|choixsiegal{'non', ' ',''})
+[<input type="hidden" name="titre" value="(#ENV{titre})" />]
+<p class="spip_bouton"><input type="submit" value="<:forum_valider:>" /></p>]
+
+[(#ENV**{afficher_texte}|choixsiegal{'non', '',' '})
+	----------------********----------------
+	c. Suppression de  <:mots_clefs:>
+	d. déplacer les <p> pour rapprocher la zone texte
+
+3. Modifier le formulaire : 'dist/formulaires/site.html'
+	- Remplacer : <legend><:info_site:></legend> par <legend><:proposer_site:></legend>
+	- Supprimer : <p></p>
+	
+4. Modifier le fichier 'squelettes=minirezo/inc-menu_horizontal.html' [optionnel]
+Si la structure dispose aussie de GestPlan placer le fichier IMG/hta/gestplan.hta
+Sinon supprimer le lien vers l'application
+
+5. Modifier le fichier 'squelettes=minirezo/plan.html' [optionnel]
+<BOUCLE_racine(RUBRIQUES){racine}{par titre}{id_rubrique!=XXX}>
+ou XXX est égale au numéro de la rubrique Annuaire = 326 dans la version restaurée
+
+6. Modification du fichier 'ecrire/balise/formulaire_site.php'
+Ligne 50 est mis en commentaire pour éviter le bug des sites non accepté.
+A vérivier sur les versions ultérieurs de SPIP 

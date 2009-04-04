@@ -1,0 +1,19 @@
+#CACHE{0}
+<B_sujets_forums2>
+	<div id="complements"><:info_derniere:></div>
+<BOUCLE_sujets_forums2(FORUMS){id_rubrique}{par date}{inverse}>
+	<br />
+	<div class="forum">
+		<a name="forum#ID_FORUM" id="forum#ID_FORUM"></a>
+		<div class="forum_sup"><a href="<?php echo generer_action_auteur('instituer_forum',"#ID_FORUM-off", _DIR_RESTREINT_ABS . '../#SELF&var_mode=calcul'); ?>" >Supprimer</a></div>
+		[<div class="forum_titre">(#TITRE)</div>]
+		[<div class="forum_texte">(#TEXTE)</div>]
+		[<div class="forum_ref_web"><:ref_web:><a href="#URL_SITE" target="_blank" >(#NOM_SITE)</a></div>]
+		<div class="forum_auteur">
+				[<:publie_par:>&nbsp;<a href="mailto:#EMAIL">(#NOM)</a>,]
+				[le (#DATE|affdate) [&agrave; (#DATE|heures)h][(#DATE|minutes)min] ]
+				<div class="haut"><a href="#"><img alt="Haut de page"  title="Haut de page" src="squelettes/image/haut.gif" border="0" /></a></div>
+		</div><!-- class="forum_auteur" -->
+	</div><!-- class"forum"-->
+</BOUCLE_sujets_forums2>
+</B_sujets_forums2>

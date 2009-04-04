@@ -1,0 +1,14 @@
+.titre_rub{	font-size: 140%;	margin-top: 35px;	margin-bottom: 40px;	margin-left: -5px;	text-align: center;}
+
+.tout_actu{	font-size: 80%;	text-align: right;	margin-top: 5px;}
+
+.date_offre{	font-size: 0.7em;}
+.form_site{	margin-top: 70px;}
+
+/*************** Définitions des styles pour l'ajout d'article dans l'espace public' *******************/
+.id_rubrique, .surtitre, .titre, .soustitre, .descriptif, .chapo, .texte, .ps, .lien_titre, .lien_url, .nom_auteur_session, .email_auteur_session  {	margin-left: 15px;}
+.legend {	margin-top: 5px;	margin-bottom: 10px;	font-weight: bold;	margin-left: 10px;} 
+label{	margin-top: 5px;	display: block;		margin-left: 7px;}
+.filet{	margin-right: 110px;	margin-top: 10px;}
+.titre_art{	font-size: 140%;	margin-top: 10px;	margin-bottom: 15px;	margin-left: -5px;}
+.texte_art {	text-align: left;	margin-left: 7px;	font-size: 90%;	line-height: 1.3;	margin-top: 15px;}

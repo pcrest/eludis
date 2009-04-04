@@ -1,0 +1,37 @@
+#CACHE{86400}
+<div>
+<form action="[(#ENV{url})]" method="post" name="formulaire_article" enctype="multipart/form-data" >
+	<input type="hidden" name="article" value="[(#ENV**{article})]"  size="50">
+	[<div class="clear">(#ENV*{mess_error})
+	</div>]<div id="left_ajout_contact">
+		<:annonce_contact:>
+			<label><:prenom:></label>
+			<div class="marge"><input type="text" name="surtitre" value="[(#ENV**{surtitre})]"  size="70" maxlength="85"></div>
+			<label><:nom:></label>
+			<div class="marge"><input type="text" name="titre" value="[(#ENV**{titre})]"  size="70" maxlength="85"></div>
+			<label><:fonction:></label>
+			<div class="marge"><input type="text" name="soustitre" value="[(#ENV**{soustitre})]"  size="70" maxlength="85"></div>
+			<label><:missions:></label>
+			<div class="marge"><textarea name="descriptif" rows="2" cols="52">[(#ENV**{descriptif})]</textarea></div>
+			<label><:email:></label>
+			<div class="marge"><input type="text" name="nom_site" value="[(#ENV**{nom_site})]"  size="70" maxlength="85"></div>
+			<label><:siteweb:></label>
+			<div class="marge"><input type="text" name="url_site" value="[(#ENV**{url_site})]"  size="70" maxlength="85"></div>
+			<label><:coordo_tel:></label>
+			<div class="marge"><textarea name="chapo" rows="2" cols="52">[(#ENV**{chapo})]</textarea></div>
+			<label><:autre_info_contact:></label>
+			[(#ENV**{texte}|barre_article{30,52})]
+			<!-- 
+				<label><:pubconfig:publie_ps:></label>
+				<div class="marge"><textarea name="ps" rows="2" cols="52">[(#ENV**{ps})]</textarea></div>
+			-->
+		</div>							
+		<div align="center">
+		<br / >&nbsp;<br / >
+		<input type='submit' name='valider' class='spip_bouton' value="#ENV*{bouton}" />
+		<input type="submit" name="abandonner" class="spip_bouton" value="<:pubconfig:abandonner:>" />
+		<br / ><br / >
+		</div>
+	
+</form>
+</div>

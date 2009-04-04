@@ -1,0 +1,56 @@
+<!-- descriptif=<multi>[fr]Fond de test du storage {classic} pour le plugin de configuration cfg
+[en]Simple test for the {classic} storage of configuration plugin cfg</multi>
+<br /><a href="../?page=test_cfg&var_mode=recalcul" class="spip_in">
+<multi>[fr]Retour page test publique
+[en]Back to public result page</multi></a>
+-->
+
+<!-- boite=<multi>[fr]Test storage classic pour le plugin cfg [en]Classic storage test for the cfg plugin</multi>-->
+
+
+<!-- liens*=cfg:testclassic -->
+<!-- liens*=cfg:testsimple -->
+<!-- liens*=cfg:testcasier -->
+<!-- liens*=cfg:testinclure -->
+<!-- liens*=cfg:testauteur -->
+<!-- liens*=cfg:extraarticles -->
+<!-- liens*=cfg:testmulti -->
+<!-- liens*=cfg:testphp -->
+<!-- liens*=cfg:testtable -->
+
+<!-- depot=meta -->
+<!-- onglet=non -->
+
+#CACHE{0}
+
+
+[<p class='formulaire_erreur'>(#ENV*{message_erreur})</p>]
+[<p class="formulaire_message">(#ENV*{message_ok})</p>]
+
+<form method="post" action="#SELF"><div>
+[(#ENV{_cfg_}|form_hidden)]
+#ACTION_FORMULAIRE{#SELF,cfg}
+
+<fieldset>
+<legend><:cfg:storage_classic:></legend>
+		<label>Email webmaster</label>
+		<input type="text" name="email_webmaster" value="#ENV{email_webmaster}" size="30" />
+		[<span class='erreur'>(#ENV**{erreurs}|table_valeur{email_webmaster})</span>]
+		<br />
+		
+		<label>Nom site</label>
+		<input type="text" name="nom_site" value="#ENV{nom_site}" size="50" />
+		[<span class='erreur'>(#ENV**{erreurs}|table_valeur{nom_site})</span>]
+		<br />
+		
+		<label>Descriptif site</label>
+		<textarea name="descriptif_site" class="type_pwd" rows="4" cols="40" style="width:100%;">[(#ENV{descriptif_site})]</textarea>
+		[<span class='erreur'>(#ENV**{erreurs}|table_valeur{descriptif_site})</span>]
+
+</fieldset>
+
+<input type="submit" name="_cfg_ok" value="<:cfg:OK:>" />
+<input type="reset" value="<:cfg:Reset:>" />
+<!--input type="submit" name="_cfg_delete" value="<:cfg:Supprimer:>" /-->
+
+</div></form>

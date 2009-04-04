@@ -1,0 +1,70 @@
+Installation faite pour mlnanterre.eludia.net
+Une fois valider mettre à jour la version de référence eludis.eludia.net
+---------- Procédure d'installation d'Eludis -------
+
+1. Installer SPIP 1.9.2d [11132]
+
+2. Installer les plugins suivant :
+	a. 'publiePublic' 0.1.0 (publiepublic)
+	b. 'squelette par profil'  0.1 (squelette_profil_1_9)
+	c. 'GoogleMaps Api'  0.2
+	d. 'Escoitar Gis Plugin' 0.2 version disponible sur eludis.eludi.net/plugins car les fichiers : fonds/cfg_gis.html et rss-gis.html ont été modifiés
+	e. 'cfg :moteur de configuration ' 1.7.5 pour permettre le paramétrage de 'Escoitar Gis Plugin'	
+
+3. Restaurer le dump 'base_model_1_9_2d_20080527.xml.gz'
+	a. Dans le back-office sur 'Configuration' modifier URL du site, son nom et sa description
+
+4. Placer les squelettes d'Eludis :
+	a. Répertoires : 'squelettes', 'squelettes=comite' et 'squelettes=minirezo' sur la racine
+	b. Fichiers sur /actualite.html et /inc-rss-actu.html
+	c. '.htaccess' dans le répertoire : '/ecrire' et modifier avec le path
+
+-- Modification de la distribution SPIP -----------
+	d. Créer un répertoire 'dist-origine' dans /dist
+	e. Y placer tous les fichiers html présent sur dist SAUF :
+		- jquery.js.html
+		- style_prive.html
+		- les fichiers *.css
+		- les sous-répertoires
+
+5. Placer les formulaires : 
+		- 'dist/formulaires/recherche.html'
+		- 'dist/formulaires/forum.html'
+ 		- 'dist/formulaires/site.html'
+
+
+-- Fin de la modification de la distribution de SPIP --------
+
+6. Modifier le fichier 'squelettes=minirezo/inc-menu_horizontal.html' 
+	- Si la structure utilise aussi GestPlan placer le fichier IMG/hta/gestplan.hta
+	- Sinon supprimer le lien vers l'application
+
+7. Vérifier l'affichage du logo, de l'image de fond et du nom de l'intranet dans le header, 
+si nécessaire modifier le fichier 'squelettes/style/header.css'
+
+8. Faire la configuration des plugins 
+	- 'GoogleMaps Api' : enregistrement de la clef google/maps
+	- 'Escoitar Gis Plugin' avec l'utilisation du plugins 'cfg :moteur de configuration'
+
+[option]
+	Si pas le dump 'base_model_1_9_2d_20080527.xml.gz' n'a pas été utilisé (site déjà en production)  alors modifier les fichiers
+	a. 'squelettes=minirezo/plan.html' 
+	Ligne 29 : <BOUCLE_racine(RUBRIQUES){racine}{par titre}{id_rubrique!=X}>
+	b. 'squelettes=minirezo/recherche.html'
+	Ligne 68, 81, 92, 144, 157, 168
+	où X est égale au numéro de la rubrique Annuaire (1 est le n° de rubrique dans la version dump modèle)
+
+
+----------- Remarques sur la configuration ---------------
+Elles sont importées avec la restauration de la base eludis.eludia.net
+
+A. Rubrique dont id_rubrique est codé en dans le squelette
+=> id_rubrique=1 pour la rubrique 'Annuaire'
+
+B. Mots clefs obligatoires
+=> id_mot=4 pour "Extranet" dans le groupe id_group=4 "Pour être diffusé sur"
+=> id_mot=13 pour "Page d'accueil" dans le groupe id_groupe=6 "Affichage"
+=> id_mot=14 pour "Coordonnées" dans le id_groupe=7 "Type d'article" 
+		Ce mot clef est à utiliser pour les articles qui sont des redirections vers un article ou une rubrique du secteur Annuaire=1. 
+		Ces articles s'affichent alors dans le cartouche 'Annuaire' du menu de droite
+

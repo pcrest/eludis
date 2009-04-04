@@ -1,0 +1,37 @@
+.recherche{	margin: 0.3em;	padding: 0em 0.3em 0.7em;	width: 98%;}
+
+.resultat{	float: left;	width: 47%;	margin-left: 1%;	padding-bottom: 10px; border-right-width: 1px;	border-right-style: dashed;	border-right-color: #999999;}
+.resultat2{	float: left;	width: 47%;	padding-left: 1%;}
+.coordo{	padding-left: 5%;	margin-top: 15px;}
+.coordo p{	line-height: 1;}
+
+.legend {	margin-top: 5px;	margin-bottom: 10px;	font-weight: bold;	margin-left: 10px;} 
+label{	margin-top: 5px;	display: block;		margin-left: 3px;}
+
+.titre_rub{	font-size: 140%;	margin-top: 15px;	margin-bottom: 0px;	margin-left: -5px; text-align:center; margin-bottom:10px;}
+
+.cartouche_annuaire{	-moz-border-radius: 10px;
+	margin: 0.3em 1.7em 0.3em 1.7em;
+	padding: 0em 0.3em 0.7em;
+	border: 1px solid #6188B8;
+}
+.cartouche_annuaire ul{	margin-top: 0px;	margin-bottom: 0px;}
+.cartouche_annuaire li{ margin-left: -17px;margin-top: 4px;}
+.cartouche_annuaire a{	color: #000000;	text-decoration: none;}
+.cartouche_annuaire a:hover{	color: #000000;	text-decoration:underline;}
+
+
+#recherche_contact{
+	clear: both;
+	float: right;
+	text-align: right;
+	font-size: 90%;
+}
+.spip_logos{
+	margin-right: 30px;
+	margin-left: 30px;
+	margin-top: 5px;
+}
+.plan{
+	margin-top: 10px;
+}

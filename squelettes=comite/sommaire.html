@@ -1,0 +1,97 @@
+#CACHE{0}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="#LANG" dir="#LANG_DIR">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=#CHARSET" />
+	<title>Actualit&eacute;s &middot; #NOM_SITE_SPIP</title>
+	#INSERT_HEAD
+	<link rel="alternate" type="application/rss+xml" title="<:syndiquer_site:>" href="spip.php?page=backend">
+	<link rel="stylesheet" type="text/css" media="screen" href="../squelettes/style/general.css" />
+	<link rel="stylesheet" type="text/css" media="print" href="../squelettes/style/general_print.css" />
+	
+	<link rel="stylesheet" type="text/css" media="screen" href="../squelettes/style/sommaire.css" />
+	<link rel="stylesheet" type="text/css" media="print" href="../squelettes/style/sommaire_print.css" />
+	
+	<link rel="stylesheet" type="text/css" media="screen" href="../squelettes/style/header.css" />
+	<link rel="stylesheet" type="text/css" media="print" href="../squelettes/style/header_print.css" />
+	
+	<link rel="stylesheet" type="text/css" media="screen" href="../squelettes/style/menuh.css" />
+	<link rel="stylesheet" type="text/css" media="print" href="../squelettes/style/menuh_print.css" />
+	
+	<link rel="stylesheet" type="text/css" media="screen" href="../squelettes/style/footer.css" />
+	<link rel="stylesheet" type="text/css" media="print" href="../squelettes/style/footer_print.css" />
+
+
+</head>
+
+<body>
+<div id="wraper">
+	<div id="wraperinner">
+		<INCLURE{fond=inc-header}>
+		<INCLURE{fond=inc-menu_horizontal}{id_rubrique}{id_secteur}>
+						<div class="titre_actu"><:info_derniere:> <a href="#URL_PAGE{backend}"><img src="squelettes/image/rss-new.gif" border="0" alt="RSS" title="File RSS des IDM" /></a></div>
+						<BOUCLE_racine(RUBRIQUES){racine}{par num titre} {id_mot=4}>
+							<fieldset class="cartouche">
+							<legend class="titre_cart"><a href="#URL_RUBRIQUE">[(#TITRE|supprimer_numero)]</a></legend>
+								<BOUCLE_forum(FORUMS){id_rubrique}{par date}{inverse}{0,7}{id_mot=4}>
+									[<div class="puce"><img src="squelettes/image/puce_bleu.gif" alt="puce_bleu" border="0" /> 
+										<a href="[(#URL_FORUM)]" title="[(#TEXTE|couper{50}|attribut_html)]">
+											(#TITRE|couper{60}) 
+										</a>
+										[<span class="date_actu">(Publié &nbsp;le&nbsp;(#DATE|affdate_court))</span>]
+									</div>]
+								</BOUCLE_forum>
+								</B_forum>
+								<//B_forum>
+								<BOUCLE_art(ARTICLES){id_rubrique}>
+									<BOUCLE_forum_art(FORUMS){id_article}{par date}{inverse}{0,7}{id_mot=4}>
+										[<div class="puce"><img src="squelettes/image/puce_bleu.gif" alt="puce_bleu" border="0" /> 
+											<a href="[(#URL_FORUM)]" title="[(#TEXTE|couper{50}|attribut_html)]">
+												(#TITRE|couper{60}) 
+											</a>
+											[<span class="date_actu">(Publié &nbsp;le&nbsp;(#DATE|affdate_court))</span>]
+										</div>]
+									</BOUCLE_forum_art>
+									</B_forum_art>
+									<//B_forum_art>
+								</BOUCLE_art>
+								<!-- récurence -->
+								<BOUCLE_sous_rub(RUBRIQUES){id_parent}>
+									<BOUCLE_forum2(FORUMS){id_rubrique}{par date}{inverse}{0,7}{id_mot=4}>
+										[<div class="puce"><img src="squelettes/image/puce_bleu.gif" alt="puce_bleu" border="0" /> 
+											<a href="[(#URL_FORUM)]" title="[(#TEXTE|couper{50}|attribut_html)]">
+												(#TITRE|couper{60}) 
+											</a>
+											[<span class="date_actu">(Publié &nbsp;le&nbsp;(#DATE|affdate_court))</span>]
+										</div>]
+									</BOUCLE_forum2>
+									</B_forum2>
+								<//B_forum2>
+									<BOUCLE_art2(ARTICLES){id_rubrique}>
+										<BOUCLE_forum_art2(FORUMS){id_article}{par date}{inverse}{0,7}{id_mot=4}>
+											[<div class="puce"><img src="squelettes/image/puce_bleu.gif" alt="puce_bleu" border="0" /> 
+												<a href="[(#URL_FORUM)]" title="[(#TEXTE|couper{50}|attribut_html)]">
+													(#TITRE|couper{60}) 
+												</a>
+												[<span class="date_actu">(Publié &nbsp;le&nbsp;(#DATE|affdate_court))</span>]
+											</div>]
+										</BOUCLE_forum_art2>
+										</B_forum_art2>
+										<//B_forum_art2>
+									</BOUCLE_art2>
+									<BOUCLE_recursive(boucle_sous_rub)>
+						      </BOUCLE_recursive>
+									</B_recursive>
+									<//B_recursive>
+								</BOUCLE_sous_rub>
+								<!-- fin récurence -->
+							</fieldset>
+						</BOUCLE_racine>
+		<INCLURE{fond=inc-footer}>		
+	</div>
+	<!-- id="wraperinner" -->
+</div><!-- id="wraper" -->
+</html>
+
+
+<!-- la fin de la page est dans forum/template/fiapple/overall_footer_sommaire.tpl -->

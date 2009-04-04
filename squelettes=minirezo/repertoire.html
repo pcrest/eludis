@@ -1,0 +1,44 @@
+#CACHE{3600}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<BOUCLE_rubrique_principal(RUBRIQUES) {id_rubrique=1}>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="#LANG" dir="#LANG_DIR">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=#CHARSET" />
+	<title>Actualit&eacute;s &middot; #NOM_SITE_SPIP</title>
+	#INSERT_HEAD
+	<link rel="alternate" type="application/rss+xml" title="<:syndiquer_site:>" href="spip.php?page=backend">
+	<link rel="stylesheet" type="text/css" media="screen" href="../squelettes/style/general.css" />
+	<link rel="stylesheet" type="text/css" media="print" href="../squelettes/style/general_print.css" />
+	
+	<link rel="stylesheet" type="text/css" media="screen" href="../squelettes/style/sommaire.css" />
+	<link rel="stylesheet" type="text/css" media="print" href="../squelettes/style/sommaire_print.css" />
+	
+	<link rel="stylesheet" type="text/css" media="screen" href="../squelettes/style/header.css" />
+	<link rel="stylesheet" type="text/css" media="print" href="../squelettes/style/header_print.css" />
+	
+	<link rel="stylesheet" type="text/css" media="screen" href="../squelettes/style/menuh.css" />
+	<link rel="stylesheet" type="text/css" media="print" href="../squelettes/style/menuh_print.css" />
+	
+	<link rel="stylesheet" type="text/css" media="screen" href="../squelettes/style/footer.css" />
+	<link rel="stylesheet" type="text/css" media="print" href="../squelettes/style/footer_print.css" />
+
+</head>
+
+<body>
+<div id="wraper">
+	<div id="wraperinner">
+		<INCLURE{fond=inc-header}>
+		<INCLURE{fond=inc-menu_horizontal}{id_rubrique}>
+						<B_structure>
+						<div class="titre_actu"><:toute_structure:> : #PAGINATION</div>
+						<BOUCLE_structure(RUBRIQUES){id_parent}{tous}{par titre}{pagination 40}>
+							<div class="cartouche">
+							<legend class="titre_cart"><a href="#URL_RUBRIQUE">[(#TITRE|supprimer_numero)]</a>&nbsp;([(#ID_RUBRIQUE)])</legend>
+							</div>
+						</BOUCLE_structure>
+		<INCLURE{fond=inc-footer}>		
+	</div>
+	<!-- id="wraperinner" -->
+</div><!-- id="wraper" -->
+</html>
+</BOUCLE_rubrique_principal>

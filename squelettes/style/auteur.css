@@ -1,0 +1,11 @@
+/*********** Style de cartouche pour 3 colonnes ***********/
+
+.cartouche{	-moz-border-radius: 10px;	margin: 0.3em;
+	padding: 0em 0.3em 0.7em;	border: 1px solid #6188B8;
+width: 31%;	float: left;}
+
+.spip_logos{	margin-right: 30px;	margin-left: 30px;	border: 1px solid #000000;}
+
+.titre_actu{	font-size: 140%;	margin-top: 5px;	margin-bottom: 0px;	margin-left: -5px; text-align:center; margin-bottom:10px;}
+.date_actu{	font-size: 0.7em;}
+.texte_rub{	margin-left: 20px;}

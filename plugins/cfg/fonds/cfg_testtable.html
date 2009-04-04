@@ -1,0 +1,98 @@
+<!-- descriptif=<multi>[fr]Fond de test du storage "table" auteur pour le plugin de configuration cfg
+_Utilise la table spip_auteurs_listes de spip-listes_1_9_2
+[en]Table storage test for the configuration plugin cfg
+_Uses the table spip_auteurs_listes from spip-listes_1_9_2</multi>
+
+<form action="./?exec=cfg&amp;cfg=testauteur">
+<input type="hidden" name="exec" value="cfg" />
+<input type="hidden" name="cfg" value="testtable" />
+
+[(#REM) Attention, important de ne pas faire &lt;select name="xxx"...&gt;
+	pour ne pas etre vu comme un champ de config]
+
+<select id="cfg_id" name="cfg_id" onchange="this.form.submit();">
+<BOUCLE_cote(AUTEURS){tout}{par login}>
+	<option value="#ID_AUTEUR" [(#ENV{cfg_id}|=={#ID_AUTEUR}|?{selected="selected"})]>
+	#LOGIN
+	</option>
+</BOUCLE_cote>
+</select>
+<input type="submit" name="go" value="&gt;" />
+</form>
+
+<br /><a href="../?page=test_cfg&var_mode=recalcul" class="spip_in">
+<multi>[fr]Retour page test publique
+[en]Back to public result page</multi></a>
+-->
+
+<!-- titre=<multi>[fr]Test table auteurs_listes pour le plugin cfg [en]Table auteurs_listes test for the cfg plugin</multi>-->
+
+
+<!-- liens*=cfg:testclassic -->
+<!-- liens*=cfg:testsimple -->
+<!-- liens*=cfg:testcasier -->
+<!-- liens*=cfg:testinclure -->
+<!-- liens*=cfg:testauteur -->
+<!-- liens*=cfg:extraarticles -->
+<!-- liens*=cfg:testmulti -->
+<!-- liens*=cfg:testphp -->
+<!-- liens*=cfg:testtable -->
+
+<!-- depot=table-->
+<!-- table=spip_auteurs_listes-->
+<!-- onglet=non -->
+
+#CACHE{0}
+<form method="post">[(#ENV{_cfg_}|form_hidden)]
+
+<fieldset>
+<label for="id_auteur">*[(#ENV{id_auteur})]*<:id_auteur:></label>
+<select name="id_auteur" class="cfg_id" id="id_auteur"
+	onchange="jQuery(this.form._cfg_affiche).click();">
+<BOUCLE_aut(AUTEURS){tout}{par login}>
+	<option value="#ID_AUTEUR" [(#ENV{id_auteur}|=={#ID_AUTEUR}|?{selected="selected"})]>
+	#LOGIN
+	</option>
+</BOUCLE_aut>
+</select>
+<label for="id_liste">*[(#ENV{id_liste})]*<:id_liste:></label>
+<select name="id_liste" class="cfg_id" id="id_liste"
+	onchange="jQuery(this.form._cfg_affiche).click();">
+<BOUCLE_lis(LISTES){tout}{par titre}>
+	<option value="#ID_LISTE" [(#ENV{id_liste}|=={#ID_LISTE}|?{selected="selected"})]>
+	#TITRE
+	</option>
+</BOUCLE_lis>
+</select>
+<input type="submit" name="_cfg_affiche" value="&gt;">
+<label for="_cfg_copier"><:cfg:copier_si_change:></label>
+<input type="checkbox" name="_cfg_copier" />
+</fieldset>
+
+<fieldset><legend><:cfg:champs_auteur_liste:></legend>
+<label for="statut">*<:statut:></label>
+<select name="statut" id="statut">
+	<option value="a_valider" [(#ENV{statut}|=={a_valider}|?{selected="selected"})]>
+	A valider
+	</option>
+	<option value="valide" [(#ENV{statut}|=={valide}|?{selected="selected"})]>
+	Valide
+	</option>
+</select>
+
+<label for="format">*<:format:></label>
+<select name="format" id="format">
+	<option value="html" [(#ENV{format}|=={html}|?{selected="selected"})]>
+	HTML
+	</option>
+	<option value="texte" [(#ENV{format}|=={texte}|?{selected="selected"})]>
+	Texte
+	</option>
+</select>
+
+</fieldset>
+
+<input type="submit" name="_cfg_ok" value="<:cfg:OK:>" />
+<input type="reset" value="<:cfg:Reset:>" />
+<input type="submit" name="_cfg_delete" value="<:cfg:Supprimer:>" />
+</form>

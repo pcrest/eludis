@@ -1,0 +1,61 @@
+#CACHE{24*3600}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<BOUCLE_article_principal(ARTICLES) {id_article}>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="#LANG" dir="#LANG_DIR">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=#CHARSET" />
+	<title>[(#TITRE|supprimer_numero)] &middot; #NOM_SITE_SPIP</title>
+	#INSERT_HEAD
+	<link rel="stylesheet" type="text/css" media="screen" href="../squelettes/style/general.css" />
+	<link rel="stylesheet" type="text/css" media="print" href="../squelettes/style/general_print.css" />
+	<link rel="stylesheet" type="text/css" href="../squelettes/style/article.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="../squelettes/style/header.css" />
+	<link rel="stylesheet" type="text/css" media="print" href="../squelettes/style/header_print.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="../squelettes/style/menuh.css" />
+	<link rel="stylesheet" type="text/css" media="print" href="../squelettes/style/menuh_print.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="../squelettes/style/footer.css" />
+	<link rel="stylesheet" type="text/css" media="print" href="../squelettes/style/footer_print.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="../squelettes/style/menu.css" />
+</head>
+<body>
+<div id="wraper">
+	<div id="wraperinner">
+		<INCLURE{fond=inc-header}>
+		<INCLURE{fond=inc-menu_horizontal}{id_rubrique}{id_secteur}>
+		<div id="maininner">
+				<div id="left">
+					<div id="menu">
+						<BOUCLE_rubrique(RUBRIQUES){id_rubrique}>
+							<INCLURE{fond=inc-menu_gauche}{id_secteur}{id_rubrique}>
+						</BOUCLE_rubrique>
+					</div>
+				</div><!-- id="left" -->
+			  <div id="content">
+					<div class="chemin">
+					&nbsp;
+					</div> <!-- class="chemein" -->
+					[(#LOGO_ARTICLE|left||reduire_image{150,0})]
+					[<div class="surtitre">(#SURTITRE)</div>]
+				  <div class="titre_art">[(#TITRE|supprimer_numero)]</div>
+					[<div class="soustitre">(#SOUSTITRE)</div>]
+					[<div class="descriptif">(#DESCRIPTIF)</div>]
+					[<div class="nom_site"><a href="#URL_SITE">(#NOM_SITE)</a></div>]
+					[<div class="chapo">(#CHAPO)</div>]
+					[<div class="texte_art">(#TEXTE|reduire_image{150,0})</div>]
+					[<div class="ps">(#PS)</div>]
+					<div class="date_art">[<:date_pub:>(#DATE|affdate_jourcourt)][ <:par:> (#LESAUTEURS)]</div>
+					[<div class="vos_infos"><a href="#URL_PAGE{forum}&amp;(#PARAMETRES_FORUM)&amp;var_mode=calcul"><:info_minute:></a></div>]
+					<!-- Ajout de l'inclusion pour les IDM -->
+					<INCLURE{fond=inc-forum_article}{id_article}>
+				</div><!-- id="content" -->
+				<div id="right">
+					<!-- Ajout de l'inclusion pour le menu de droite -->
+					<INCLURE{fond=inc-menu_droit_art}{id_article}{id_rubrique}>
+				</div><!-- id="right" -->
+			</div><!-- id="maininner" -->
+		<INCLURE{fond=inc-footer}>		
+	</div><!-- id="wraperinner" -->
+</div><!-- id="wraper" -->
+</body>
+</html>
+</BOUCLE_article_principal>

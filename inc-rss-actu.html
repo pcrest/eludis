@@ -1,0 +1,32 @@
+#CACHE{0}
+<BOUCLE_un_article(FORUMS){par date} {inverse}>
+	<item>
+		<title>[(#TITRE|supprimer_numero|texte_backend)]</title>
+		<link>[(#URL_FORUM|url_absolue)]</link>
+		[<guid isPermaLink="true">(#URL_FORUM|url_absolue)</guid>]
+		[<dc:date>(#DATE|date_iso)</dc:date>]
+		<dc:format>text/html</dc:format>
+		[<dc:language>(#LANG)</dc:language>]
+		[<dc:creator>(#NOM|supprimer_tags|texte_backend)</dc:creator>]
+
+		<category> </category>
+		<dc:subject> </dc:subject>
+
+		<description>[(#TEXTE|texte_backend)]</description>
+
+		[(#REM)
+			Le bloc qui suit diffuse aussi le texte integral de l'article,
+			ce qui permet une syndication plus riche (mais plus "lourde").
+			Fonction desactivable depuis les reglages du site.
+		]
+		[(#CONFIG{syndication_integrale}|=={oui}|?{' ',''})
+			<content:encoded>
+				[(#LOGO_ARTICLE|right||texte_backend)]
+				[&lt;div class='rss_chapo'&gt;(#CHAPO|texte_backend)&lt;/div&gt;]
+				[&lt;div class='rss_texte'&gt;(#TEXTE|image_reduire{520,0}|texte_backend)&lt;/div&gt;]
+				[&lt;hr /&gt;&lt;div class='rss_notes'&gt;(#NOTES|texte_backend)&lt;/div&gt;]
+				[&lt;div class='rss_ps'&gt;(#PS|texte_backend)&lt;/div&gt;]
+			</content:encoded>
+		]
+	</item>
+</BOUCLE_un_article>

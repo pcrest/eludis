@@ -1,0 +1,42 @@
+<!-- descriptif=Fond de test multi pour le plugin de configuration cfg
+<br /><a href="../?page=test_cfg&var_mode=recalcul" class="spip_in">retour test public</a>
+ -->
+<!-- titre=Test multi pour le plugin cfg -->
+
+<!-- liens*=cfg:testclassic -->
+<!-- liens*=cfg:testsimple -->
+<!-- liens*=cfg:testcasier -->
+<!-- liens*=cfg:testinclure -->
+<!-- liens*=cfg:testauteur -->
+<!-- liens*=cfg:extraarticles -->
+<!-- liens_multi*=cfg:testmulti -->
+<!-- liens*=cfg:testphp -->
+<!-- liens*=cfg:testtable -->
+
+<!-- onglet=non -->
+
+#CACHE{0}
+<form method="post">[(#ENV{_cfg_}|form_hidden)]
+
+<fieldset>
+[(#REM) la classe cfg_id permet de stocker dans un tableau sous cet index]
+<label for="id">*<:cfg:id:></label>
+<input type="text" name="id" class="cfg_id" value="#ENV{id}" size="15" />
+<input type="submit" name="_cfg_affiche" value="&gt;">
+<label for="_cfg_copier"><:cfg:copier_si_change:></label>
+<input type="checkbox" name="_cfg_copier" />
+</fieldset>
+
+<fieldset><legend><:cfg:champs_de_chez_multi:></legend>
+<label>id</label>
+<input type="text" name="mulid" class="type_id" value="#ENV{mulid}" size="10" />
+<label>password</label>
+<input type="password" name="mulpwd" class="type_pwd" value="#ENV{mulpwd}" size="10" />
+<label>idnum</label>
+<input type="text" name="mulidnum" class="type_idnum" value="#ENV{mulidnum}" size="8" />
+</fieldset>
+
+<input type="submit" name="_cfg_ok" value="<:cfg:ok:>" />
+<input type="reset" value="<:cfg:reset:>" />
+<input type="submit" name="_cfg_delete" value="<:cfg:supprimer:>" />
+</form>

@@ -1,0 +1,24 @@
+<B_rubriques>
+<div class="rubriques">
+		<BOUCLE_rubriques(RUBRIQUES) {id_secteur} {0,1}{id_mot=4}>
+			<div class="secteur"><a href="#URL_RUBRIQUE">[(#TITRE|supprimer_numero|couper{80})]</a></div>
+				<B_sous_rubriques>
+					<ul>
+						<BOUCLE_sous_rubriques(RUBRIQUES) {id_parent} {par num titre, titre}{id_mot=4}>
+							<li>-&nbsp;<a href="#URL_RUBRIQUE" class="#EXPOSE">[(#TITRE|supprimer_numero|couper{80})]</a>	</li>
+								<B_sous_rub>
+								<ul>
+								<BOUCLE_sous_rub(RUBRIQUES){id_parent} {par num titre, titre}{id_mot=4}> 
+									<li>-&nbsp;<a href="#URL_RUBRIQUE" class="#EXPOSE">[(#TITRE|supprimer_numero|couper{80})]</a></li>
+										<BOUCLE_re(BOUCLE_sous_rubriques)>
+										</BOUCLE_re>
+								</BOUCLE_sous_rub>
+								</ul>
+								</B_sous_rub>
+								<div class="ligne">&nbsp;</div>
+						</BOUCLE_sous_rubriques>
+					</ul>
+				</B_sous_rubriques>
+		</BOUCLE_rubriques>
+	</div>
+</B_rubriques>

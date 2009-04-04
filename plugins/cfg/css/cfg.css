@@ -1,0 +1,4 @@
+/*  Affichage de la balise CFG_ARBO  */
+.cfg_arbo{}
+.cfg_arbo h5{padding:0.2em 0.2em; margin:0.2em 0;}
+.cfg_arbo ul{border:1px solid #ccc; margin:0; padding:0.2em 0.5em; list-style-type:none;}

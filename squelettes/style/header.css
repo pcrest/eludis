@@ -1,0 +1,20 @@
+#header {
+	position: relative;
+	background-image: url(../image/bandeau.jpg);
+	background-repeat: no-repeat;
+	background-position: right center;
+	height: 70px;
+	margin-bottom: -4px;
+}
+#headerinner {	background-image: url(../../IMG/siteon0.gif);	background-position: left top;	height: 70px;	width: 8ems;	background-repeat: no-repeat;}
+#headerinner a{	text-decoration: none;	color: #000000;}
+#headerinner a:hover{	text-decoration: underline;}
+
+#nom {
+	margin-left: 10px;
+	padding-top: 27px;
+	text-align: left;
+	font-size: 110%;
+	font-weight: bold;
+}
+#recherche_general{	position: absolute;	right: 12px;	top: 37px;}

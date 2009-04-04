@@ -1,0 +1,40 @@
+#CACHE{86400}
+<div>
+<form action="[(#ENV{url})]" method="post" name="formulaire_article" enctype="multipart/form-data" >
+	<input type="hidden" name="article" value="[(#ENV**{article})]"  size="50">
+	[(#ENV*{formulaire_previsu})]
+	[<div class="clear">(#ENV*{mess_error})
+	</div>]<div id="left_ajout">
+
+		<div><strong><:pubconfig:redigez_article:></strong></div>
+
+			<label><:pubconfig:publie_surtitre:></label>
+			<div class="marge"><input type="text" name="surtitre" value="[(#ENV**{surtitre})]"  size="70" maxlength="85"></div>
+			<label><:pubconfig:publie_titre:>&nbsp;[<:pubconfig:obligatoire:>]</label>
+			<div class="marge"><input type="text" name="titre" value="[(#ENV**{titre})]"  size="70" maxlength="85"></div>
+			<label><:pubconfig:publie_soustitre:></label>
+			<div class="marge"><input type="text" name="soustitre" value="[(#ENV**{soustitre})]"  size="70" maxlength="85"></div>
+			<label><:pubconfig:publie_descriptif:></label>
+			<div class="marge"><textarea name="descriptif" rows="2" cols="52">[(#ENV**{descriptif})]</textarea></div>
+			<label><:pubconfig:publie_nom_site:></label>
+			<div class="marge"><input type="text" name="nom_site" value="[(#ENV**{nom_site})]"  size="70" maxlength="85"></div>
+			<label><:pubconfig:publie_url_site:></label>
+			<div class="marge"><input type="text" name="url_site" value="[(#ENV**{url_site})]"  size="70" maxlength="85"></div>
+			<label><:pubconfig:publie_chapeau:></label>
+			<div class="marge"><textarea name="chapo" rows="2" cols="52">[(#ENV**{chapo})]</textarea></div>
+			<label><:pubconfig:publie_texte:></label>
+			[(#ENV**{texte}|barre_article{30,52})]
+			<label><:pubconfig:publie_ps:></label>
+			<div class="marge"><textarea name="ps" rows="2" cols="52">[(#ENV**{ps})]</textarea></div>
+		</div>							
+		<div id="right_ajout">
+		<input type="submit" name="previsualiser" class="spip_bouton" value="<:pubconfig:previsualiser:>" />
+		<input type='submit' name='valider' class='spip_bouton' value="#ENV*{bouton}" />
+		<input type="submit" name="abandonner" class="spip_bouton" value="<:pubconfig:abandonner:>" />
+		<br />
+			[(#ENV*{formulaire_documents})]
+		</div>
+	<br />
+	
+</form>
+</div>

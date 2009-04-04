@@ -1,0 +1,82 @@
+
+
+<!-- liens*=cfg:testclassic -->
+<!-- liens*=cfg:testsimple -->
+<!-- liens*=cfg:testcasier -->
+<!-- liens*=cfg:testinclure -->
+<!-- liens*=cfg:testauteur -->
+<!-- liens*=cfg:extraarticles -->
+<!-- liens*=cfg:testmulti -->
+<!-- liens*=cfg:testphp -->
+<!-- liens*=cfg:testtable -->
+<!-- liens*=cfg:testfichier -->
+
+<!-- depot=metapack -->
+<!-- nom=test -->
+<!-- onglet=non -->
+
+#CACHE{0}
+
+
+[<p class='formulaire_erreur'>(#ENV*{message_erreur})</p>]
+[<p class="formulaire_message">(#ENV*{message_ok})</p>]
+
+<form method="post" enctype="multipart/form-data"><div>
+[(#ENV{_cfg_}|form_hidden)]
+
+<fieldset>
+<legend><:cfg:test_cfg_fichier:></legend>
+		<label>Envoi d'un fichier</label>
+		<input type="file" name="fichier" value="" size="30" />
+		[<span class='erreur'>(#ENV**{erreurs}|table_valeur{fichier})</span>]
+		<br />
+		
+		<h3>Image actuelle</h3>
+		<dl>		
+		<dt>&#35;ENV{fichier}</dt>
+		<dd>#ENV{fichier}</dd>
+		
+		<dt>&#35;CONFIG{test/fichier}</dt>
+		<dd>#CONFIG{test/fichier}</dd>
+		
+		<dt>&#35;CFG_CHEMIN{test/fichier}</dt>
+		<dd>#CFG_CHEMIN{test/fichier}</dd>
+				
+		<dt>[(&#35;CFG_CHEMIN{test/fichier}|image_reduire{100})]</dt>
+		<dd>[(#CFG_CHEMIN{test/fichier}|image_reduire{100})]</dd>
+		
+		<dt>&lt;img src="&#35;CFG_CHEMIN{test/fichier}" /&gt;</dt>
+		<dd><img src="#CFG_CHEMIN{test/fichier}" /></dd>	
+		</dl>
+
+
+		<label>Envoi d'un autre fichier</label>
+		<input type="file" name="autre_fichier" value="" size="30" />
+		[<span class='erreur'>(#ENV**{erreurs}|table_valeur{autre_fichier})</span>]
+		<br />	
+		
+		<h3>Image actuelle</h3>
+		<dl>		
+		<dt>&#35;ENV{autre_fichier}</dt>
+		<dd>#ENV{autre_fichier}</dd>
+		
+		<dt>&#35;CONFIG{test/autre_fichier}</dt>
+		<dd>#CONFIG{test/autre_fichier}</dd>
+		
+		<dt>&#35;CFG_CHEMIN{test/autre_fichier}</dt>
+		<dd>#CFG_CHEMIN{test/autre_fichier}</dd>
+			
+		<dt>[(&#35;CFG_CHEMIN{test/autre_fichier}|image_reduire{100})]</dt>
+		<dd>[(#CFG_CHEMIN{test/autre_fichier}|image_reduire{100})]</dd>
+		
+		<dt>&lt;img src="&#35;CFG_CHEMIN{test/autre_fichier}" /&gt;</dt>
+		<dd><img src="#CFG_CHEMIN{test/autre_fichier}" /></dd>		
+		</dl>
+				
+</fieldset>
+
+<input type="submit" name="_cfg_ok" value="<:cfg:OK:>" />
+<input type="reset" value="<:cfg:Reset:>" />
+<input type="submit" name="_cfg_delete" value="<:cfg:Supprimer:>" />
+
+</div></form>

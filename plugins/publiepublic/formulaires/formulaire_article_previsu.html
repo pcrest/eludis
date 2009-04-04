@@ -1,0 +1,16 @@
+#CACHE{86400}
+[(#ENV*{erreur})]
+<div id="content_previsu">
+<div><center><:pubconfig:previsualisation:></center></div>
+[<div class="surtitre">(#ENV*{surtitre})</div>]
+[<div class="titre_art">(#ENV*{titre}|supprimer_numero)</div>]
+[<div class="soustitre">(#ENV*{soustitre})</div>]
+[<div class="descriptif">(#ENV*{descriptif})</div>]
+[<div class="nom_site"><a href="[(#ENV*{url_site})]">(#ENV*{nom_site})</a></div>]
+[<div class="chapo">(#ENV*{chapo})</div>]
+<div  class="texte_art">[(#ENV*{texte}|image_reduire{150,0})]</div>
+[<div class="ps">(#ENV*{ps})</div>]
+</div>
+
+
+

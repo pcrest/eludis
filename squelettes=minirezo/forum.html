@@ -1,0 +1,169 @@
+#CACHE{600}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="#LANG" dir="#LANG_DIR">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=#CHARSET" />
+	<title>[(#TITRE|supprimer_numero)] &middot; #NOM_SITE_SPIP</title>
+	#INSERT_HEAD
+	<link rel="stylesheet" type="text/css" media="screen" href="../squelettes/style/general.css" />
+	<link rel="stylesheet" type="text/css" media="print" href="../squelettes/style/general_print.css" />
+	<link rel="stylesheet" type="text/css" href="../squelettes/style/forum.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="../squelettes/style/header.css" />
+	<link rel="stylesheet" type="text/css" media="print" href="../squelettes/style/header_print.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="../squelettes/style/menuh.css" />
+	<link rel="stylesheet" type="text/css" media="print" href="../squelettes/style/menuh_print.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="../squelettes/style/footer.css" />
+	<link rel="stylesheet" type="text/css" media="print" href="../squelettes/style/footer_print.css" />
+	<link rel="stylesheet" type="text/css" href="../squelettes/style/menu.css" />
+
+
+</head>
+<body>
+<div id="wraper">
+	<div id="wraperinner">
+		<INCLURE{fond=inc-header}>
+		<BOUCLE_article_menu_horizontal(ARTICLES){id_article}>
+			<INCLURE{fond=inc-menu_horizontal}{id_rubrique}>
+		</BOUCLE_article_menu_horizontal>
+		</B_article_menu_horizontal>
+			<INCLURE{fond=inc-menu_horizontal}{id_rubrique}>
+		<//B_article_menu_horizontal>
+			<div id="maininner">
+				<div id="left">
+					<div id="menu">
+						<BOUCLE_article_menu(ARTICLES){id_article}>
+							<BOUCLE_rubrique(RUBRIQUES){id_rubrique}>
+								<INCLURE{fond=inc-menu_gauche}{id_secteur}{id_rubrique}>
+							</BOUCLE_rubrique>
+						</BOUCLE_article_menu>
+						<BOUCLE_rubrique2(RUBRIQUES){id_rubrique}>
+							<INCLURE{fond=inc-menu_gauche}{id_secteur}{id_rubrique}>
+						</BOUCLE_rubrique2>
+					</div> <!-- id="menu" -->
+				</div><!-- id="left" -->
+			  <div id="content">
+					<div id="poster_complement"><:poster_complement:></div>
+					<BOUCLE_article_forum(ARTICLES) {id_article}>
+						[<div class="titre_art">(#TITRE|supprimer_numero)</div>]
+					</BOUCLE_article_forum>
+					<BOUCLE_rubrique_forum(RUBRIQUES){id_rubrique}>
+						[<div class="titre_art">(#TITRE|supprimer_numero)</div>]
+					</BOUCLE_rubrique_forum>
+					<div id="remplir_form"><:remplir_form:></div>
+						[(#FORMULAIRE_FORUM)]
+				</div><!-- id="content" -->
+				<div id="right">
+						<BOUCLE_article1(ARTICLES) {id_article}>
+							<B_autre_article1>
+							<fieldset class="cartouche">
+								<legend class="titre_cart"><:annuaire:></legend>
+									<ul >
+										<BOUCLE_autre_article1(ARTICLES){id_rubrique}{par num titre}{id_mot=14}{doublons}>
+										<li>
+											<a href="[(#URL_ARTICLE)]" title="[(#DESCRIPTIF|attribut_html)]">
+												[(#TITRE|supprimer_numero)]
+											</a>
+										</li>
+										</BOUCLE_autre_article1>
+									</ul>
+								</fieldset> <!-- class="cartouche" -->
+							</B_autre_article1>
+						</BOUCLE_article1>
+
+				
+				
+				
+				
+				<B_article_annuaire><fieldset class="cartouche">
+					<legend class="titre_cart"><:annuaire:></legend>
+					<ul >
+						<BOUCLE_article_annuaire(ARTICLES){id_rubrique}{par titre}{id_mot=14}{doublons}>
+							<li>
+								<a href="[(#URL_ARTICLE)]" title="[(#DESCRIPTIF|attribut_html)]">
+									[(#TITRE|supprimer_numero)]
+								</a> 
+							</li>
+						</BOUCLE_article_annuaire>
+					</ul>
+				</fieldset >
+			</B_article_annuaire>
+					<B_site>
+						<fieldset class="cartouche_site">
+						<legend class="titre_cart_site"><:info_web:></legend>
+						<ul >
+							<BOUCLE_site(SITES){id_rubrique}{par date}{inverse}>
+								<li>
+									<a href="[(#URL_SITE)]" title="[(#DESCRIPTIF|attribut_html)]">
+										[(#NOM_SITE|supprimer_numero)]
+									</a>
+								</li>
+							</BOUCLE_site>
+						</ul>
+						</fieldset>
+						</B_site>
+						<B_article_rub>
+							<fieldset class="cartouche_art">
+							<legend class="titre_cart_art"><:info_locale:></legend>
+							<ul >
+							<BOUCLE_article_rub(ARTICLES){id_rubrique}{par num titre}{doublons}>
+								<li>
+									<a href="[(#URL_ARTICLE)]" title="[(#DESCRIPTIF|attribut_html)]">
+										[(#TITRE|supprimer_numero)]
+									</a>
+								</li>
+							</BOUCLE_article_rub>
+						</ul>
+						</fieldset>
+						</B_article_rub>
+						<BOUCLE_article(ARTICLES) {id_article}>
+							<B_autre_article>
+							<fieldset class="cartouche_art">
+								<legend class="titre_cart_art"><:info_locale:></legend>
+									<ul >
+										<BOUCLE_autre_article(ARTICLES){id_rubrique}{par num titre}{doublons}>
+										<li>
+											<a href="[(#URL_ARTICLE)]" title="[(#DESCRIPTIF|attribut_html)]">
+												[(#TITRE|supprimer_numero)]
+											</a>
+										</li>
+										</BOUCLE_autre_article>
+									</ul>
+								</fieldset> <!-- class="cartouche" -->
+							</B_autre_article>
+						</BOUCLE_article>
+						<B_doc_rub>
+						<fieldset class="cartouche">
+						<legend class="titre_cart"><:documents:></legend>
+						<ul >
+							<BOUCLE_doc_rub(DOCUMENTS){id_rubrique}{par num titre}>
+								<li>
+									<a href="[(#URL_DOCUMENT)]" title="[(#DESCRIPTIF|attribut_html)]">
+										[(#TITRE|supprimer_numero|?{[(#TITRE|supprimer_numero)],"Sans titre"})]
+									</a>
+								</li>
+							</BOUCLE_doc_rub>
+						</ul>
+						</fieldset>
+						</B_doc_rub>
+						<B_doc>
+						<fieldset class="cartouche">
+						<legend class="titre_cart"><:documents:></legend>
+						<ul >
+							<BOUCLE_doc(DOCUMENTS){id_article}>
+								<li>
+									<a href="[(#URL_DOCUMENT)]" title="[(#DESCRIPTIF|attribut_html)]">
+										[(#TITRE|supprimer_numero|?{[(#TITRE|supprimer_numero)],"Sans titre"})]
+									</a>
+								</li>
+							</BOUCLE_doc>
+						</ul>
+						</fieldset>
+						</B_doc>
+						&nbsp;
+				</div><!-- id="right" -->
+			</div><!-- id="maininner" -->
+		<INCLURE{fond=inc-footer}>	
+	</div><!-- id="wraperinner" -->
+</div><!-- id="wraper" -->
+</body>
+</html>

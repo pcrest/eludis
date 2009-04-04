@@ -1,0 +1,11 @@
+
+/***************** pour la gestion des IDM *************/
+.titre_actu{	font-size: 140%;	margin-top: 5px;	margin-bottom: 0px;	margin-left: -5px; text-align:center; margin-bottom:10px;}
+.date_actu{	font-size: 0.7em;}
+.cartouche{	-moz-border-radius: 10px;	margin: 0.3em;	padding: 0em 0.3em 0.7em;	border: 1px solid #647DB3;		width: 31%;	float: left;	color: #647DB3;}
+.cartouche a.modif{
+	text-decoration: underline;
+	color: #B364B3;
+	font-size: 0.7em;
+}
+.cartouche a.modif:hover{	text-decoration: underline overline;}

@@ -1,0 +1,124 @@
+#CACHE{86400}
+<BOUCLE_article_principal(ARTICLES) {id_article=1}><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html dir="#LANG_DIR" lang="#LANG">
+<head>
+<title>test cfg</title>
+<meta name="description" content="test cfg" />
+<INCLURE{fond=inc-head}>
+</head>
+
+<body class="page_cfg">
+<div id="page">
+
+	[(#REM) Entete de la page + titre du site ]
+	<INCLURE{fond=inc-entete}{lang}>
+<a href="ecrire/?exec=cfg&cfg=testsimple" class="spip_in">changer test simple</a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="?page=test_cfg&var_mode=recalcul&test=testsimple/testid" class="spip_in">avec param GET test:) </a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="?page=test_cfg&var_mode=recalcul&test=testsimple/testid&serie=a:3:{s:6:%22testid%22;s:7:%22wx123ff%22;s:7:%22testpwd%22;s:5:%2212345%22;s:9:%22testidnum%22;s:6:%22987654%22;}" class="spip_in">avec param GET test et serie:) </a>
+	<div id="conteneur">
+
+		[(#REM) Contenu principal: test de cfg ]
+
+		<div id="contenu" style="width: 100%; ">
+yellow_fade:
+[(#REM|sinon{#CONFIG{crayons}}|match{s:11:"yellow_fade";s:2:"on";}|?{' ',''})
+ON
+]
+<dl>
+<!--
+	<dt>[(&#035;ENV*{serie,'a:3:{s:6:"testid";s:7:"wx123ff";s:7:"testpwd";s:5:"12345";s:9:"testidnum";s:6:"987654";}'}|extrait{testpwd})]</dt>
+	<dd>[(# ENV*{serie,'a:3:{s:6:"testid";s:7:"wx123ff";s:7:"testpwd";s:5:"12345";s:9:"testidnum";s:6:"987654";}'}|extrait{testpwd})]</dd>
+-->
+
+	<dt>&#035;CONFIG{~}</dt>
+	<dd>#CONFIG{~}</dd>
+
+	<dt>&#035;CONFIG{~test}</dt>
+	<dd>#CONFIG{~test}</dd>
+
+	<dt>&#035;CONFIG{~test/testauteur}</dt>
+	<dd>#CONFIG{~test/testauteur}</dd>
+
+	<dt>&#035;CONFIG{~test/testauteur/chp2}</dt>
+	<dd>#CONFIG{~test/testauteur/chp2}</dd>
+
+	<dt>&#035;CONFIG{auteur:6/testauteur/chp2}</dt>
+	<dd>#CONFIG{auteur:6/testauteur/chp2}</dd>
+
+	<dt>&#035;CONFIG</dt>
+	<dd>#CONFIG</dd>
+
+	<dt>&#035;CONFIG{crayons}</dt>
+	<dd>#CONFIG{crayons}</dd>
+
+	<dt>&#035;CONFIG{descriptif_site}</dt>
+	<dd>#CONFIG{descriptif_site}</dd>
+
+	<dt>&#035;CONFIG{testsimple}</dt>
+	<dd>#CONFIG{testsimple}</dd>
+
+	<dt>&#035;CONFIG{testmulti}</dt>
+	<dd>#CONFIG{testmulti}</dd>
+
+	<dt>&#035;CONFIG{testsimple/testid}</dt>
+	<dd>#CONFIG{testsimple/testid}</dd>
+
+	<dt>&#035;CONFIG{&#035;ENV{test}} avec &#035;ENV{test}=#ENV{test}</dt>
+	<dd>#CONFIG{#ENV{test}}</dd>
+
+	<dt>&#035;CONFIG{&#035;ENV{testx,testsimple/testid}}</dt>
+	<dd>#CONFIG{#ENV{testx,testsimple/testid}}</dd>
+
+	<dt>&#035;CONFIG{testsimple/dudu/user}</dt>
+	<dd>[(#CONFIG{testsimple/dudu/user})]</dd>
+
+	<dt>&#035;CONFIG{testsimple,xxx}</dt>
+	<dd>#CONFIG{testsimple,xxx}</dd>
+
+	<dt>&#035;CONFIG{testsimple/dudu/user,yyy}</dt>
+	<dd>[(#CONFIG{testsimple/dudu/user,yyy})]</dd>
+
+	<dt>&#035;CONFIG{config_xxx,zzz}</dt>
+	<dd>#CONFIG{config_xxx,zzz}</dd>
+
+	<dt>&#035;CONFIG{testsimple/dudux/user,ttt}</dt>
+	<dd>[(#CONFIG{testsimple/dudux/user,ttt})]</dd>
+
+	<dt>[(&#035;REM|sinon{', '}|implode{&#035;CONFIG|unserialize|array_keys})]</dt>
+	<dd>[(#REM|sinon{', '}|implode{#CONFIG|unserialize|array_keys})]</dd>
+	
+	<dt>var_dump(lire_config('testsimple/testidnum'))</dt>
+	<dd><?php echo var_dump(lire_config('testsimple/testidnum')); ?></dd>
+	
+	<dt>var_dump(lire_config('testsimple'))</dt>
+	<dd><?php echo var_dump(lire_config('testsimple')); ?></dd>
+	
+	<dt>var_dump(lire_config('testsimple/testidnux', 'blah'))</dt>
+	<dd><?php echo var_dump(lire_config('testsimple/testidnux', 'blah')); ?></dd>
+	
+	<dt>var_dump(lire_config('testsimplex', 'blih'))</dt>
+	<dd><?php echo var_dump(lire_config('testsimplex', 'blih')); ?></dd>
+	
+	<dt>var_dump(lire_config('testsimplex/testidnum'))</dt>
+	<dd><?php echo var_dump(lire_config('testsimplex/testidnum')); ?></dd>
+	
+	<dt>var_dump(lire_config('testsimplex'))</dt>
+	<dd><?php echo var_dump(lire_config('testsimplex')); ?></dd>
+	
+	<dt>var_dump(lire_config())</dt>
+	<dd><?php echo var_dump(lire_config()); ?></dd>
+
+</dl>
+		</div><!-- fin contenu -->
+
+	</div><!-- fin conteneur -->
+
+	[(#REM) Pied de page ]
+	<INCLURE{fond=inc-pied}{lang}>
+
+</div><!-- fin page -->
+</body>
+</html>
+</BOUCLE_article_principal>

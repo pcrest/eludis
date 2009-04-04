@@ -1,0 +1,89 @@
+#CACHE{24*3600}
+<BOUCLE_principale(SITES){id_syndic}>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="#LANG" dir="#LANG_DIR">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=#CHARSET" />
+	<title>[<:article_syndic_sur:>(#NOM_SITE)] &middot; #NOM_SITE_SPIP</title>
+	#INSERT_HEAD
+		<link rel="stylesheet" type="text/css" media="screen" href="../squelettes/style/general.css" />
+	<link rel="stylesheet" type="text/css" media="print" href="../squelettes/style/general_print.css" />
+
+	<link rel="stylesheet" type="text/css" href="../squelettes/style/plan.css" />
+		<link rel="stylesheet" type="text/css" media="screen" href="../squelettes/style/header.css" />
+	<link rel="stylesheet" type="text/css" media="print" href="../squelettes/style/header_print.css" />
+
+		<link rel="stylesheet" type="text/css" media="screen" href="../squelettes/style/menuh.css" />
+	<link rel="stylesheet" type="text/css" media="print" href="../squelettes/style/menuh_print.css" />
+
+		<link rel="stylesheet" type="text/css" media="screen" href="../squelettes/style/footer.css" />
+	<link rel="stylesheet" type="text/css" media="print" href="../squelettes/style/footer_print.css" />
+
+</head>
+
+<body>
+<div id="wraper">
+	<div id="wraperinner">
+		<INCLURE{fond=inc-header}>
+		<INCLURE{fond=inc-menu_horizontal}{id_rubrique}{id_secteur}>
+						[<div class="titre_rub"><:site:><a href="#URL_SITE">(#NOM_SITE)</a></div>
+						]
+							<B_articles>
+							<fieldset class="cartouche">
+								<legend class="titre_cart"><:article_syndic:></legend>
+								<ul>
+									<BOUCLE_articles(SYNDIC_ARTICLES) {id_syndic} {age<180} {par date}{inverse} {1/3}>
+										<li>
+											<div class="titre"><a href="#URL_ARTICLE" class="spip_out">#TITRE</a></div>
+											[<div class="enclosures">(#TAGS|afficher_enclosures)</div>]
+											<small>[(#DATE|affdate_court)][, <:par_auteur:> (#LESAUTEURS)]
+											[<div> &mdash; (#TAGS|afficher_tags) </div>]</small>
+											[<div class="texte">(#DESCRIPTIF|image_reduire{300})
+											<br class="nettoyeur" /></div>]
+									</li>
+								</BOUCLE_articles>
+							</ul>
+						</fieldset>
+						</B_articles>
+						<div class="aucun_site"><:aucun_article_syndic:></div>
+						<//B_articles>
+						<B_articles2>
+							<fieldset class="cartouche">
+								<legend class="titre_cart"><:article_syndic:></legend>
+								<ul>
+									<BOUCLE_articles2(SYNDIC_ARTICLES) {id_syndic} {age<180} {par date}{inverse} {2/3}>
+										<li>
+											<div class="titre"><a href="#URL_ARTICLE" class="spip_out">#TITRE</a></div>
+											[<div class="enclosures">(#TAGS|afficher_enclosures)</div>]
+											<small>[(#DATE|affdate_court)][, <:par_auteur:> (#LESAUTEURS)]
+											[<div> &mdash; (#TAGS|afficher_tags) </div>]</small>
+											[<div class="texte">(#DESCRIPTIF|image_reduire{300})
+											<br class="nettoyeur" /></div>]
+									</li>
+								</BOUCLE_articles2>
+							</ul>
+						</fieldset>
+						</B_articles2>
+						<B_articles3>
+							<fieldset class="cartouche">
+								<legend class="titre_cart"><:article_syndic:></legend>
+								<ul>
+									<BOUCLE_articles3(SYNDIC_ARTICLES) {id_syndic} {age<180} {par date}{inverse} {3/3}>
+										<li>
+											<div class="titre"><a href="#URL_ARTICLE" class="spip_out">#TITRE</a></div>
+											[<div class="enclosures">(#TAGS|afficher_enclosures)</div>]
+											<small>[(#DATE|affdate_court)][, <:par_auteur:> (#LESAUTEURS)]
+											[<div> &mdash; (#TAGS|afficher_tags) </div>]</small>
+											[<div class="texte">(#DESCRIPTIF|image_reduire{300})
+											<br class="nettoyeur" /></div>]
+									</li>
+								</BOUCLE_articles3>
+							</ul>
+						</fieldset>
+						</B_articles3>
+		<INCLURE{fond=inc-footer}>		
+	</div><!-- id="wraperinner" -->
+</div><!-- id="wraper" -->
+</body>
+</html>
+</BOUCLE_principale>

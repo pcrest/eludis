@@ -1,0 +1,60 @@
+<B_article_annuaire><fieldset class="cartouche">
+		<legend class="titre_cart"><:annuaire:></legend>
+		<ul >
+			<BOUCLE_article_annuaire(ARTICLES){id_rubrique}{par titre}{id_mot=14}{doublons}>
+				<li>
+					<a href="[(#URL_ARTICLE)]" title="[(#DESCRIPTIF|attribut_html)]">
+						[(#TITRE|supprimer_numero)]
+					</a> 
+				</li>
+			</BOUCLE_article_annuaire>
+		</ul>
+	</fieldset >
+</B_article_annuaire>
+<B_site><fieldset class="cartouche_site">
+		<legend class="titre_cart_site"><:info_web:></legend>
+		<ul >
+			<BOUCLE_site(SITES){id_rubrique}{par num nom_site}>
+				<li>
+					<a href="[(#URL_SITE)]" title="[(#DESCRIPTIF|attribut_html)]">
+						[(#NOM_SITE|supprimer_numero)]
+					</a>
+					<BOUCLE_syndic(SITES){id_syndic}{syndication=oui}>
+					<a href="#URL_PAGE{syndic,id_syndic=#ID_SYNDIC}"><img src="squelettes/image/feed.gif" border="0"></a>
+					</BOUCLE_syndic>
+				</li>
+			</BOUCLE_site>
+		</ul>
+	</fieldset>
+</B_site>
+<div class="vos_infos_sites"><a href="#URL_PAGE{ajouter_site}&amp;id_rubrique=#ID_RUBRIQUE#ajout_site"><:ajouter_site:></a></div>
+<B_article>
+	<fieldset class="cartouche_art">
+		<legend class="titre_cart_art"><:autre_articles:></legend>
+		<ul >
+			<BOUCLE_article(ARTICLES){id_rubrique}{par num titre}{exclus}{doublons}>
+				<li>
+					<a href="[(#URL_ARTICLE)]" title="[(#DESCRIPTIF|attribut_html)]">
+						[(#TITRE|supprimer_numero)]
+					</a> 
+				</li>
+			</BOUCLE_article>
+		</ul>
+	</fieldset >
+</B_article>
+<div class="vos_infos_locales"><a href="#URL_PAGE{ajouter_article}&amp;id_rubrique=#ID_RUBRIQUE&amp;id_auteur=<?php echo($auteur_session['id_auteur']); ?>"><:ajouter_info:></a></div>
+<B_doc>
+	<fieldset  class="cartouche">
+		<legend class="titre_cart"><:documents:></legend>
+		<ul >
+			<BOUCLE_doc(DOCUMENTS){id_article}{mode=document} {par num titre}>
+				<li>
+					<a href="[(#URL_DOCUMENT)]" title="[(#DESCRIPTIF|attribut_html)]">
+						[(#TITRE|supprimer_numero|?{[(#TITRE|supprimer_numero)],"Sans titre"})]
+					</a>
+				</li>
+			</BOUCLE_doc>
+		</ul>
+	</fieldset >
+</B_doc>
+&nbsp;

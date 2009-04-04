@@ -1,0 +1,120 @@
+#CACHE{24*3600}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<BOUCLE_rubrique_principal(RUBRIQUES) {id_rubrique}{tout}>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="#LANG" dir="#LANG_DIR">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=#CHARSET" />
+	<title>[(#TITRE|supprimer_numero)] &middot; #NOM_SITE_SPIP</title>
+	#INSERT_HEAD
+	<link rel="stylesheet" type="text/css" media="screen" href="../squelettes/style/general.css" />
+	<link rel="stylesheet" type="text/css" media="print" href="../squelettes/style/general_print.css" />
+	<link rel="stylesheet" type="text/css" href="../squelettes/style/repertoire.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="../squelettes/style/header.css" />
+	<link rel="stylesheet" type="text/css" media="print" href="../squelettes/style/header_print.css" />
+		<link rel="stylesheet" type="text/css" media="screen" href="../squelettes/style/menuh.css" />
+	<link rel="stylesheet" type="text/css" media="print" href="../squelettes/style/menuh_print.css" />
+
+	<link rel="stylesheet" type="text/css" media="screen" href="../squelettes/style/footer.css" />
+	<link rel="stylesheet" type="text/css" media="print" href="../squelettes/style/footer_print.css" />
+
+
+</head>
+
+<body>
+<div id="wraper">
+	<div id="wraperinner">
+		<INCLURE{fond=inc-header}>
+		<INCLURE{fond=inc-menu_horizontal}{id_rubrique}{id_secteur}>
+		<BOUCLE_titre_sect(RUBRIQUES){id_rubrique=#ID_SECTEUR}>
+			[<div class="titre_rub">(#TITRE|supprimer_numero)</div>]
+		</BOUCLE_titre_sect>	
+
+		<div class="recherche">
+			<div id="recherche_contact">
+				[(#FORMULAIRE_RECHERCHE|spip.php?page=recherche_contact)]
+				<:contact_structure:>
+			</div>
+			<:initiale:>&nbsp;:
+			<a href="#URL_PAGE{rubrique}&amp;id_rubrique=1&init=[0-9]">0-9</a> -
+			<a href="#URL_PAGE{rubrique}&amp;id_rubrique=1&init=A">A</a> - 
+			<a href="#URL_PAGE{rubrique}&amp;id_rubrique=1&init=B">B</a> - 
+			<a href="#URL_PAGE{rubrique}&amp;id_rubrique=1&init=C">C</a> - 
+			<a href="#URL_PAGE{rubrique}&amp;id_rubrique=1&init=D">D</a> - 
+			<a href="#URL_PAGE{rubrique}&amp;id_rubrique=1&init=E">E</a> - 
+			<a href="#URL_PAGE{rubrique}&amp;id_rubrique=1&init=F">F</a> - 
+			<a href="#URL_PAGE{rubrique}&amp;id_rubrique=1&init=G">G</a> - 
+			<a href="#URL_PAGE{rubrique}&amp;id_rubrique=1&init=H">H</a> - 
+			<a href="#URL_PAGE{rubrique}&amp;id_rubrique=1&init=I">I</a> - 
+			<a href="#URL_PAGE{rubrique}&amp;id_rubrique=1&init=J">J</a> - 
+			<a href="#URL_PAGE{rubrique}&amp;id_rubrique=1&init=K">K</a> - 
+			<a href="#URL_PAGE{rubrique}&amp;id_rubrique=1&init=L">L</a> - 
+			<a href="#URL_PAGE{rubrique}&amp;id_rubrique=1&init=M">M</a> - 
+			<a href="#URL_PAGE{rubrique}&amp;id_rubrique=1&init=N">N</a> - 
+			<a href="#URL_PAGE{rubrique}&amp;id_rubrique=1&init=O">O</a> - 
+			<a href="#URL_PAGE{rubrique}&amp;id_rubrique=1&init=P">P</a> - 
+			<a href="#URL_PAGE{rubrique}&amp;id_rubrique=1&init=Q">Q</a> - 
+			<a href="#URL_PAGE{rubrique}&amp;id_rubrique=1&init=R">R</a> - 
+			<a href="#URL_PAGE{rubrique}&amp;id_rubrique=1&init=S">S</a> - 
+			<a href="#URL_PAGE{rubrique}&amp;id_rubrique=1&init=T">T</a> - 
+			<a href="#URL_PAGE{rubrique}&amp;id_rubrique=1&init=U">U</a> - 
+			<a href="#URL_PAGE{rubrique}&amp;id_rubrique=1&init=V">V</a> - 
+			<a href="#URL_PAGE{rubrique}&amp;id_rubrique=1&init=W">W</a> - 
+			<a href="#URL_PAGE{rubrique}&amp;id_rubrique=1&init=X">X</a> - 
+			<a href="#URL_PAGE{rubrique}&amp;id_rubrique=1&init=Y">Y</a> - 
+			<a href="#URL_PAGE{rubrique}&amp;id_rubrique=1&init=Z">Z</a> -
+			<a href="#URL_PAGE{repertoire}">Tous</a>		
+	</div>
+	<div class="resultat">
+		<B_structure>
+			<BOUCLE_structure(RUBRIQUES){id_rubrique}{tout}>
+				[(#LOGO_RUBRIQUE|left||reduire_image{100,0})]
+				[<div class="titre_rub">(#TITRE)</div>]
+				[<div class="coordo">(#DESCRIPTIF)</div>]
+				[<div class="coordo">(#TEXTE)</div>]
+				<div class="vos_infos_locales"><a href="#URL_PAGE{ajouter_article}&amp;id_rubrique=#ID_RUBRIQUE&amp;id_auteur=<?php echo($auteur_session['id_auteur']); ?>"><:proposer_contact:></a></div>
+				<B_doc>
+					<fieldset  class="cartouche_annuaire">
+						<legend class="titre_cart"><:documents:></legend>
+						<ul >
+							<BOUCLE_doc(DOCUMENTS){id_rubrique}{mode=document} {par num titre}>
+								<li>
+									<a href="[(#URL_DOCUMENT)]" title="[(#DESCRIPTIF|attribut_html)]">
+										[(#TITRE|supprimer_numero|?{[(#TITRE|supprimer_numero)],"Sans titre"})]
+									</a>
+								</li>
+							</BOUCLE_doc>
+						</ul>
+					</fieldset >
+				</B_doc>
+				<BOUCLE_centrado(GIS){id_rubrique}>
+					[<div class="plan">(#MODELE{carte_gis}{id_rubrique}{latit}{lonxit}{zoom=16}{type=carte})</div>]				
+				</BOUCLE_centrado>
+			</BOUCLE_structure>
+			</B_structure>
+			<//B_structure>
+	</div>
+	<div class="resultat2">
+		<B_contact>
+			<div class="titre_rub">
+				<:contacts:> ["(#TITRE)"]
+			</div>
+		<ul>
+			<BOUCLE_contact(ARTICLES){id_rubrique}>
+				<li><a href="#URL_ARTICLE
+				<BOUCLE_centrado3(GIS){id_article}>
+				[&amp;latit=(#LAT)]	[&amp;lonxit=(#LONX)]
+				</BOUCLE_centrado3>
+				" title="[(#CHAPO|couper{50}|attribut_html)]">[(#TITRE)]</a>[ (#SURTITRE)]</li>
+			</BOUCLE_contact>
+			</B_contact>
+			<//B_contact>
+		</ul>
+
+
+	</div>
+		<INCLURE{fond=inc-footer}>		
+	</div><!-- id="wraperinner" -->
+</div><!-- id="wraper" -->
+</body>
+</html>
+</BOUCLE_rubrique_principal>

@@ -1,0 +1,44 @@
+#CACHE{24*3600}
+<BOUCLE_principale(SITES){id_syndic}>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="#LANG" dir="#LANG_DIR">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=#CHARSET" />
+	<title>[<:article_syndic_sur:>(#NOM_SITE)] &middot; #NOM_SITE_SPIP</title>
+
+	#INSERT_HEAD
+		<link rel="stylesheet" type="text/css" media="screen" href="../squelettes/style/general.css" />
+	<link rel="stylesheet" type="text/css" media="print" href="../squelettes/style/general_print.css" />
+
+	<link rel="stylesheet" type="text/css" href="../squelettes/style/article.css" />
+		<link rel="stylesheet" type="text/css" media="screen" href="../squelettes/style/header.css" />
+	<link rel="stylesheet" type="text/css" media="print" href="../squelettes/style/header_print.css" />
+
+		<link rel="stylesheet" type="text/css" media="screen" href="../squelettes/style/menuh.css" />
+	<link rel="stylesheet" type="text/css" media="print" href="../squelettes/style/menuh_print.css" />
+
+		<link rel="stylesheet" type="text/css" media="screen" href="../squelettes/style/footer.css" />
+	<link rel="stylesheet" type="text/css" media="print" href="../squelettes/style/footer_print.css" />
+
+
+</head>
+
+<body>
+<div id="wraper">
+	<div id="wraperinner">
+		<INCLURE{fond=inc-header}>
+		<INCLURE{fond=inc-menu_horizontal}>
+		[<div class="titre_art"><:info_web:> : <a href="#URL_SITE">(#NOM_SITE)</a></div>
+]
+		[<div>(#LOGO_SITE)</div>]
+		[<div class="texte_art"><strong><:descriptif:></strong>(#DESCRIPTIF)</div>
+]
+		[<div class="texte_art"><strong><:url:></strong>(#URL_SITE)</div>]
+		<div class="clear">&nbsp;</div>
+<INCLURE{fond=inc-footer}>
+</div>
+<!-- id="wraperinner" -->
+</div><!-- id="wraper" -->
+</body>
+</html>
+</BOUCLE_principale>

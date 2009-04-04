@@ -1,0 +1,72 @@
+La version de référence au 23 novembre 2007 est celle du domaine eludis.eludia.net
+---------- Procédure d'installation d'Eludis -------
+
+1. Installer SPIP 1.9.2c [10268]
+ATTENTION le fichier 'autoriser.php' n'est pas celui de la version, il s'agit de la révision 10791
+afin de régler le problème de l'accès Interdit pour la modification des sites référencés 
+par un administrat restreind.
+
+
+2. Installer les plugins suivant :
+	a. 'publiePublic' 0.1.0 (publiepublic)
+	b. 'squelette par profil'  0.1 (squelette_profil_1_9)
+	c. 'Recherche Etendu' 0.1 (recherche_entendu_1_9) [option]
+	d. 'ACTIvité du JOUR' 1.52 (actijour) [option]
+	c. 'Formulaire&Tables' 0.301 (forms_et_tables_1_9_1) [option]
+
+3. Restaurer le dump 'base_model_1_9_2c_20071004.xml.gz'
+	a. Dans le back-office sur 'Configuration' modifier URL du site, son nom et sa description
+
+4. Placer les squelettes d'Eludis :
+	a. Répertoires : 'squelettes', 'squelettes=comite' et 'squelettes=minirezo' sur la racine
+	b. Richiers sur /actualite.html et /inc-rss-actu.html
+	c. '.htaccess' dans le répertoire : '/ecrire' et modifier avec le path
+
+-- Modification de la distribution SPIP -----------
+	d. Créer un répertoire 'dist-origine'
+	e. Y placer tous les fichiers html présent sur dist SAUF :
+		- jquery.js.html
+		- style_prive.html
+		- tous les fichiers *.css
+		- et tous les sous-répertoires
+
+5. Placer les formulaires : 
+		- 'dist/formulaires/recherche.html'
+		- 'dist/formulaires/forum.html'
+ 		- 'dist/formulaires/site.html'
+
+6. Placer le fichier 'ecrire/balise/formulaire_site.php'
+
+6bis. placer le fichier 'ecrire/inc/autoriser.php'
+
+-- Fin de la modification de la distribution de SPIP --------
+
+7. Modifier le fichier 'squelettes=minirezo/inc-menu_horizontal.html' 
+	- Si la structure utilise aussi GestPlan placer le fichier IMG/hta/gestplan.hta
+	- Sinon supprimer le lien vers l'application
+
+8. Vérifier l'affichage du logo, de l'image de fond et du nom de l'intranet dans le header, 
+si nécessaire modifier le fichier 'squelettes/style/header.css'
+
+[option]
+	Si pas le dump 'base_model_1_9_2c_20071004.xml.gz' n'a pas été utilisé (site déjà en production)  alors modifier les fichiers
+	a. 'squelettes=minirezo/plan.html' 
+	Ligne 29 : <BOUCLE_racine(RUBRIQUES){racine}{par titre}{id_rubrique!=X}>
+	b. 'squelettes=minirezo/recherche.html'
+	Ligne 68, 81, 92, 144, 157, 168
+	où X est égale au numéro de la rubrique Annuaire (1 est le n° de rubrique dans la version dump modèle)
+
+
+----------- Remarques sur la configuration ---------------
+Elles sont importées avec la restauration de la base eludis.eludia.net
+
+A. Rubrique dont id_rubrique est codé en dans le squelette
+=> id_rubrique=1 pour la rubrique 'Annuaire'
+
+B. Mots clefs obligatoires
+=> id_mot=4 pour "Extranet" dans le groupe id_group=4 "Pour être diffusé sur"
+=> id_mot=13 pour "Page d'accueil" dans le groupe id_groupe=6 "Affichage"
+=> id_mot=14 pour "Coordonnées" dans le id_groupe=7 "Type d'article" 
+		Ce mot clef est à utiliser pour les articles qui sont des redirections vers un article ou une rubrique du secteur Annuaire=1. 
+		Ces articles s'affichent alors dans le cartouche 'Annuaire' du menu de droite
+

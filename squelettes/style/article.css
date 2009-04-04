@@ -1,0 +1,21 @@
+/*************** Style pour les articles **************/
+
+.titre_art{	font-size: 140%;	margin-top: 10px;	margin-bottom: 15px;	margin-left: -5px;	text-align: center;	color: #64B378;}
+.texte_art {	text-align: left;	margin-left: 7px;	font-size: 90%;	line-height: 1.3;	margin-top: 15px;}
+.ps {	text-align: left;	margin-left: 7px;	font-size: 90%;	line-height: 1.3;	margin-top: 15px;}
+.descriptif {	text-align: left;	margin-left: 7px;	font-size: 90%;	line-height: 1.3;	margin-top: 15px;}
+.nom_site {	text-align: left;	margin-left: 7px;	font-size: 90%;	line-height: 1.3;	margin-top: 15px;}
+.chapo {	text-align: left;	margin-left: 7px;	font-size: 90%;	line-height: 1.3;	margin-top: 15px;}
+.soustitre {	text-align: left;	margin-left: 7px;	font-size: 90%;	line-height: 1.3;	margin-top: 15px;}
+.surtitre {	text-align: left;	margin-left: 7px;	font-size: 90%;	line-height: 1.3;	margin-top: 15px;}
+.date_art{	font-size: 80%;	text-align: right;}
+
+#content_previsu {
+	margin: 0 0px 15px -1px;
+	width:575px;
+	float: left;
+	padding-right: 10px;
+	padding-left: 10px;
+	padding-bottom: 10px;
+	border: 1px solid #6188B8;
+}

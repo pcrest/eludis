@@ -1,0 +1,17 @@
+#CACHE{86400}
+<br />
+<div><strong><:pubconfig:document_joint:></strong></div>
+<label><:pubconfig:telecharger_document:></label>
+<div class="marge">
+	<small>
+		<input name='doc' type='file' class='fondl' style='width: 100%;' /><br>
+		<input type=radio name="type" value="vignette" />&nbsp;<:pubconfig:image_inclusion:><br>
+		<input type=radio name="type" value="document" checked />&nbsp;<:pubconfig:document_inclusion:><br>
+		<p>
+			<input name='media' type='submit' VALUE='#ENV*{bouton}' class='spip_bouton' />
+			<input type="hidden" name="id_article" value="#ENV*{id_article}" />
+		</p>
+	</small>
+	<br>
+</div>
+

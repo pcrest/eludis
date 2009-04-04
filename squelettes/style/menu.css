@@ -1,0 +1,16 @@
+#menu .secteur {	background: #647DB3;	margin-bottom: 0px;	padding-top: 2px;	padding-bottom: 2px;	padding-left: 10px; }
+#menu .secteur a{color: #FFFFFF;	text-decoration: none;}
+#menu  a.on{	font-weight: bold;}
+#menu img {	border: none;}
+#menu ul {	padding: 0px;	margin-left: 5px;	margin-top: 4px;}
+#menu ul li {	list-style: none outside;	margin-top: 2px;}
+#menu ul ul {	margin: 0 0 0 15px;}
+#menu li a {	width: 140px;	text-decoration: none;	color: #000000;}
+#menu li a:hover { text-decoration: underline;}
+#menu ul ul li a {	width: 130px;/*10px de moins que le niveau précédent*/}
+#menu ul ul ul li a {	width: 120px;/*10px de moins que le niveau précédent*/}
+#menu ul ul ul ul li a {	width: 110px;/*10px de moins que le niveau précédent*/}
+#menu ul ul ul ul ul li a {	width: 100px;/*10px de moins que le niveau précédent*/}
+#menu .ligne{	line-height: 8px;}
+
+

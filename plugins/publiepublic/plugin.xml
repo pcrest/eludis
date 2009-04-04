@@ -1,0 +1,41 @@
+<plugin>
+	<nom>publiePublic</nom>
+	<version>0.1.0</version>
+	<etat>stable</etat>
+	<auteur>Eludia [contact->mailto:info@eludia.org] [site->http://www.eludia.org]<br />
+	 Adaptation du plugin OpenPublishing du [Collectif Indymedia Lille->http://lille.indymedia.org] <br />
+	 Distribu&#233; sous licence GNU/GPL
+	</auteur>
+	<description>
+		{{Permettre aux rédacteurs de proposer un article &agrave; partir de l'espace public.}} <br />
+		Cette fonctionnalit&eacute; nec&eacute;ssite que le contributeur soit identifi&eacute;.<br />
+		Par exemple dans un Intranet <br />
+		{{Ce plugin fourni :}} <br />
+		<ul>
+		<li>un formulaire <code>#FORMULAIRE_ARTICLE{#SELF}</code></li>
+		</ul>		
+		{{Procedure d'installation :}} <br />
+		<ul>
+		<li>Activez ce plugin <br />
+		<li>C'est tout.</li>
+		</ul>
+		{{Modifier vos squelettes}} <br />
+		<ul>
+		<li>Mettre la balise : <code>#FORMULAIRE_ARTICLE{#SELF}</code><br /> o&ugrave; vous souhaitez faire apparaître le formulaire de saisie de l'article</li>
+		<li>L'URL vers la page o&ugrave; se trouve ce formulaire doit comporter l'id_rubrique 
+		et l'id_auteur comme dans l'exemple suivant : <br />
+		 <code><a href="#URL_PAGE{ajouter_article}&amp;id_rubrique=#ID_RUBRIQUE </code> <br />
+		 <code>&amp;id_auteur=<\?php echo($auteur_session['id_auteur']); \?> ><:ajouter_article:></a> "</code></li>
+		</ul>
+	</description>
+	<lien></lien>
+	<prefix>pub</prefix>
+		<pipeline>
+		<nom>insert_head</nom>
+		<inclure>head.php</inclure>
+	</pipeline>
+	<pipeline>
+		<nom>body_prive</nom>
+		<action>insert_head</action>
+	</pipeline>
+</plugin>

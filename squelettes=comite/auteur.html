@@ -1,0 +1,61 @@
+#CACHE{24*3600}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="#LANG" dir="#LANG_DIR">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=#CHARSET" />
+	<title>Publication(s) de #NOM &middot; #NOM_SITE_SPIP</title>
+	#INSERT_HEAD
+		<link rel="stylesheet" type="text/css" media="screen" href="../squelettes/style/general.css" />
+	<link rel="stylesheet" type="text/css" media="print" href="../squelettes/style/general_print.css" />
+
+	<link rel="stylesheet" type="text/css" href="../squelettes/style/auteur.css" />
+		<link rel="stylesheet" type="text/css" media="screen" href="../squelettes/style/header.css" />
+	<link rel="stylesheet" type="text/css" media="print" href="../squelettes/style/header_print.css" />
+
+		<link rel="stylesheet" type="text/css" media="screen" href="../squelettes/style/menuh.css" />
+	<link rel="stylesheet" type="text/css" media="print" href="../squelettes/style/menuh_print.css" />
+
+		<link rel="stylesheet" type="text/css" media="screen" href="../squelettes/style/footer.css" />
+	<link rel="stylesheet" type="text/css" media="print" href="../squelettes/style/footer_print.css" />
+
+</head>
+
+<body>
+<div id="wraper">
+	<div id="wraperinner">
+		<INCLURE{fond=inc-header}>
+		<INCLURE{fond=inc-menu_horizontal}{id_rubrique}{id_secteur}>
+		<BOUCLE_auteur(AUTEURS) {id_auteur}>
+			[<div class="titre_actu"><:article_auteur:>(#NOM)</div>]
+			[(#LOGO_AUTEUR|left)]
+			[<div class="texte_rub">(#BIO)</div>]
+			[<div class="texte_rub"><a href="mailto:#EMAIL">(#EMAIL)</a></div>						]
+			<div class="spacer">&nbsp;</div>
+			<BOUCLE_rubrique(RUBRIQUES){racine}{id_mot=4}{par titre}>
+					<B_article>
+						<fieldset class="cartouche">
+						<legend class="titre_cart">[(#TITRE|supprimer_numero)]</legend>
+						<ul >
+							<BOUCLE_article(ARTICLES){id_secteur}{id_auteur}{par titre}{id_mot=4}>
+								<li>
+									<a href="[(#URL_ARTICLE)]" title="[(#DESCRIPTIF|attribut_html)]">
+										[(#TITRE|texte_script|supprimer_numero|attribut_html)]
+									</a>[<span class="date_actu">&nbsp;le&nbsp;(#DATE|affdate_court)</span>]
+								</li>
+							</BOUCLE_article>
+						</ul>
+						</fieldset>
+						</B_article>
+				</BOUCLE_rubrique>
+			</BOUCLE_auteur>
+		<BOUCLE_article_present (ARTICLES) {id_auteur}{id_mot=4}>
+		</BOUCLE_article_present>
+		</B_article_present>
+			<div class="titre_actu"><:aucun_article_pub:></div>
+		<//B_article_present>
+				<div class="spacer">&nbsp;</div>
+	<INCLURE{fond=inc-footer}>		
+	</div><!-- id="wraperinner" -->
+</div><!-- id="wraper" -->
+</body>
+</html>

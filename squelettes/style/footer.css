@@ -1,0 +1,11 @@
+#footer {
+	margin-bottom: 5px;
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: #6188B8;
+	padding-top:3px;
+	clear: both;
+}
+#footerinner {	margin-left: 5px;	text-align: center;}
+#footerinner a{	text-decoration: none;	color: #000000;}
+#footerinner a:hover{	text-decoration: underline;}

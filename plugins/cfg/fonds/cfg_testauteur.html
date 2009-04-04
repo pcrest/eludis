@@ -1,0 +1,62 @@
+<!-- descriptif=<multi>[fr]Fond de test des extras auteur pour le plugin de configuration cfg
+[en]Author's extra test for the configuration plugin cfg</multi>
+
+<form action="./?exec=cfg&amp;cfg=testauteur" method="post">
+<input type="hidden" name="exec" value="cfg" />
+<input type="hidden" name="cfg" value="testauteur" />
+
+[(#REM) Attention, important de ne pas faire &lt;select name="xxx"...&gt;
+	pour ne pas etre vu comme un champ de config]
+
+<select id="cfg_id" name="cfg_id" onchange="this.form.submit();">
+<BOUCLE_aut(AUTEURS){tout}{par login}>
+	<option value="#ID_AUTEUR" [(#ENV{cfg_id}|=={#ID_AUTEUR}|?{selected="selected"})]>
+	#LOGIN
+	</option>
+</BOUCLE_aut>
+</select>
+<input type="submit" name="go" value="&gt;" />
+</form>
+
+<br /><a href="../?page=test_cfg&var_mode=recalcul" class="spip_in">
+<multi>[fr]Retour page test publique
+[en]Back to public result page</multi></a>
+-->
+
+<!-- titre=<multi>[fr]Test auteur extra pour le plugin cfg [en]Author's extra test for the cfg plugin</multi>-->
+
+
+<!-- liens*=cfg:testclassic -->
+<!-- liens*=cfg:testsimple -->
+<!-- liens*=cfg:testcasier -->
+<!-- liens*=cfg:testinclure -->
+<!-- liens*=cfg:testauteur -->
+<!-- liens*=cfg:extraarticles -->
+<!-- liens*=cfg:testmulti -->
+<!-- liens*=cfg:testphp -->
+<!-- liens*=cfg:testtable -->
+
+<!-- depot=extrapack -->
+<!-- onglet=non -->
+
+#CACHE{0}
+<form method="post" action="#SELF">[(#ENV{_cfg_}|form_hidden)]
+<fieldset>
+<label for="id">*<:cfg:id:></label>
+<input type="text" name="id" class="cfg_id" value="#ENV{id}" size="15" />
+<input type="submit" name="_cfg_affiche" value="&gt;">
+<label for="_cfg_copier"><:cfg:copier_si_change:></label>
+<input type="checkbox" name="_cfg_copier" />
+</fieldset>
+
+<fieldset><legend><:cfg:champs_auteur_extra:></legend>
+<label>Champ 1</label>
+<input type="text" name="chp1" value="#ENV{chp1}" size="10" />
+<label>Champ 2</label>
+<input type="text" name="chp2" value="#ENV{chp2}" size="10" />
+</fieldset>
+
+<input type="submit" name="_cfg_ok" value="<:cfg:OK:>" />
+<input type="reset" value="<:cfg:Reset:>" />
+<input type="submit" name="_cfg_delete" value="<:cfg:Supprimer:>" />
+</form>

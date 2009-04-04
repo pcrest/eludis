@@ -1,0 +1,53 @@
+<plugin>
+	<nom> <!-- Nom du plugin -->
+	  <multi>
+	  [fr]squelette par profil
+	  [en]template directory by logging status
+	  [it]cartella del modello per status del visitatore
+	  </multi>
+	</nom>
+	<auteur>	<!-- Auteur du plugin -->
+	  Pierre Andrews (Mortimer)
+	</auteur>
+	<version>
+	  0.1
+	</version>
+	<etat>
+	  stable
+	</etat>
+	<description>
+<multi>
+[fr]
+	utilise un r&#233;pertoire de squelette en fonction du profil. 
+
+	Si on a {dossier_squelettes=messquelettes}, alors on peut cr&#233;er un dossier {messquelettes=minirezo}
+	 pour les squelettes des administrateurs, et ainsi de suite pour les autres...
+
+        Si on a {dossier_squelettes=messquelettes:walma3:forum}, on peut cr&#233;er les dossiers 
+	{messquelettes=minirezo}, {walma3=minirezo}, {forum=minirezo} juste pour les administrateurs. 
+
+	Mais on n'est pas oblig&#233; de tous les avoir. S'il n'y a pas de r&#233;pertoire sp&#233;cifique au statut, 
+	alors on prend le r&#233;pertoire par d&#233;faut.
+[en]
+   This plugin allows you to provide a different template by login status (admin, editor, etc...)
+
+   If you have a template direcotry {dossier_squelettes=mytemplates}, then, you can also create a direcotry {mytemplates=minirezo} that will be used for the pages displayed to the administrators, and so on for the other status.
+
+   If the specific directory is not found, then the default one is used.
+[it]
+  Questo plugin permette di fornire un modello diverso in funzione dello status (amministratore, redattore, etc.).
+
+Se avete una cartella {dossier_squelettes=mieimodelli}, allora potete creare una carella {mieimodelli=minirezo} per i modelli che saranno utilizzati per gli amministratori, etc.
+
+Se la cartella specifica non esiste, allora sar&#224; utilizzata  la cartella di default.
+</multi>
+	</description>
+	<lien></lien> <!-- URI de documentation -->
+	<options> <!-- fichier charge a chaque recalul de page -->
+	  chercher_squelette.php
+	</options>
+	<prefix> 
+	  SquelettesProfils
+	</prefix>
+	<necessite id="SPIP" version="[1.9.0;]" />
+</plugin>

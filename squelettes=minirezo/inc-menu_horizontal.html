@@ -1,0 +1,16 @@
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+<div id="menuh">
+	<div id="menuhinner">
+		<BOUCLE_theme(RUBRIQUES){racine}{par num titre}>
+				[<a href="#URL_RUBRIQUE" class="onglet_#EXPOSE" title="[(#DESCRIPTIF|couper{50}|attribut_html)]">(#TITRE|supprimer_numero)</a>]
+	</BOUCLE_theme>
+<a href="#" class="onglet_" onclick="MM_openBrWindow('../IMG/hta/eludia-gestplan.hta','GestPlan','resizable=yes,width=800,height=600')">Planning</a>
+</div>	
+<!-- id="menuhinner" -->
+</div><!-- id="menuh" -->

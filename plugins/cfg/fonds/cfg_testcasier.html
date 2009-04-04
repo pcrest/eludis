@@ -1,0 +1,37 @@
+<!-- descriptif=<multi>[fr]Fond de test des casiers pour le plugin de configuration cfg
+[en]Pigeonholes test for the configuration plugin cfg</multi>
+<br /><a href="../?page=test_cfg&var_mode=recalcul" class="spip_in">
+<multi>[fr]Retour page test publique
+[en]Back to public result page</multi></a>
+-->
+<!-- titre=<multi>[fr]Test casier pour le plugin cfg [en]Pigeonhole test for the cfg plugin</multi>-->
+
+
+<!-- liens*=cfg:testclassic -->
+<!-- liens*=cfg:testsimple -->
+<!-- liens*=cfg:testcasier -->
+<!-- liens*=cfg:testinclure -->
+<!-- liens*=cfg:testauteur -->
+<!-- liens*=cfg:extraarticles -->
+<!-- liens*=cfg:testmulti -->
+<!-- liens*=cfg:testphp -->
+<!-- liens*=cfg:testtable -->
+
+<!-- nom=testsimple -->
+<!-- casier=testcasier -->
+<!-- onglet=non -->
+
+#CACHE{0}
+<form method="post">[(#ENV{_cfg_}|form_hidden)]
+
+<fieldset><legend><:cfg:champs_casiers:></legend>
+<label>Champ 1</label>
+<input type="text" name="testchamp1" value="#ENV{testchamp1}" size="10" />
+<label>Champ 2</label>
+<input type="text" name="testchamp2" value="#ENV{testchamp2}" size="10" />
+</fieldset>
+
+<input type="submit" name="_cfg_ok" value="<:cfg:OK:>" />
+<input type="reset" value="<:cfg:Reset:>" />
+<input type="submit" name="_cfg_delete" value="<:cfg:Supprimer:>" />
+</form>

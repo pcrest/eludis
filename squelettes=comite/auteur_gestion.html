@@ -1,0 +1,121 @@
+#CACHE{0}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="#LANG" dir="#LANG_DIR">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=#CHARSET" />
+	<title>Annuaire &middot; #NOM_SITE_SPIP</title>
+	#INSERT_HEAD
+		<link rel="stylesheet" type="text/css" media="screen" href="../squelettes/style/general.css" />
+	<link rel="stylesheet" type="text/css" media="print" href="../squelettes/style/general_print.css" />
+
+	<link rel="stylesheet" type="text/css" href="../squelettes/style/annuaire.css" />
+		<link rel="stylesheet" type="text/css" media="screen" href="../squelettes/style/header.css" />
+	<link rel="stylesheet" type="text/css" media="print" href="../squelettes/style/header_print.css" />
+
+		<link rel="stylesheet" type="text/css" media="screen" href="../squelettes/style/menuh.css" />
+	<link rel="stylesheet" type="text/css" media="print" href="../squelettes/style/menuh_print.css" />
+
+		<link rel="stylesheet" type="text/css" media="screen" href="../squelettes/style/footer.css" />
+	<link rel="stylesheet" type="text/css" media="print" href="../squelettes/style/footer_print.css" />
+
+</head>
+
+<body>
+<div id="wraper">
+	<div id="wraperinner">
+		<INCLURE{fond=inc-header}>
+		<INCLURE{fond=inc-menu_horizontal}{id_rubrique}{id_secteur}>
+		
+
+						<div class="titre_actu"><:gestion_des_util:></div>
+							<fieldset class="cartouche">
+							<legend class="titre_cart"><:partenaires:></legend>
+							<ul >
+								<BOUCLE_part(AUTEURS){statut=1comite}{par nom}{1/4}>
+
+									<li>
+										[<a href="[(#URL_AUTEUR)]" title="[(#BIO|couper{50}|attribut_html)]">(#NOM)]</a>
+									</li>
+								  </BOUCLE_part>
+							</ul>
+							</fieldset>
+							<fieldset class="cartouche">
+							<legend class="titre_cart"><:partenaires:></legend>
+							<ul >
+								<BOUCLE_part2(AUTEURS){statut=1comite}{par nom}{2/4}>
+									<li>
+										[<a href="[(#URL_AUTEUR)]" title="[(#BIO|couper{50}|attribut_html)]">(#NOM)]</a>
+									</li>
+								</BOUCLE_part2>
+							</ul>
+							</fieldset>
+							<fieldset class="cartouche">
+							<legend class="titre_cart"><:partenaires:></legend>
+							<ul >
+								<BOUCLE_part3(AUTEURS){statut=1comite}{par nom}{3/4}>
+									<li>
+										[<a href="[(#URL_AUTEUR)]" title="[(#BIO|couper{50}|attribut_html)]">(#NOM)]	</a>
+									</li>
+								</BOUCLE_part3>
+							</ul>
+							</fieldset>
+							<fieldset class="cartouche">
+							<legend class="titre_cart"><:partenaires:></legend>
+							<ul >
+								<BOUCLE_part4(AUTEURS){statut=1comite}{par nom}{4/4}>
+									<li>
+										[<a href="[(#URL_AUTEUR)]" title="[(#BIO|couper{50}|attribut_html)]">(#NOM)]	</a>
+									</li>
+								</BOUCLE_part4>
+							</ul>
+							</fieldset>
+						
+							<div class="spacer">&nbsp;</div>
+							<fieldset class="cartouche">
+							<legend class="titre_cart"><:conseillers:></legend>
+							<ul >
+								<BOUCLE_cons(AUTEURS){statut=0minirezo}{par nom}{1/4}>
+
+									<li>
+										[<a href="[(#URL_AUTEUR)]" title="[(#BIO|couper{50}|attribut_html)]">(#NOM)]</a>
+									</li>
+								  </BOUCLE_cons>
+							</ul>
+							</fieldset>
+							<fieldset class="cartouche">
+							<legend class="titre_cart"><:conseillers:></legend>
+							<ul >
+								<BOUCLE_cons2(AUTEURS){statut=0minirezo}{par nom}{2/4}>
+									<li>
+										[<a href="[(#URL_AUTEUR)]" title="[(#BIO|couper{50}|attribut_html)]">(#NOM)]</a>
+									</li>
+								</BOUCLE_cons2>
+							</ul>
+							</fieldset>
+							<fieldset class="cartouche">
+							<legend class="titre_cart"><:conseillers:></legend>
+							<ul >
+								<BOUCLE_cons3(AUTEURS){statut=0minirezo}{par nom}{3/4}>
+									<li>
+										[<a href="[(#URL_AUTEUR)]" title="[(#BIO|couper{50}|attribut_html)]">(#NOM)]	</a>
+									</li>
+								</BOUCLE_cons3>
+							</ul>
+							</fieldset>
+							<fieldset class="cartouche">
+							<legend class="titre_cart"><:conseillers:></legend>
+							<ul >
+								<BOUCLE_cons4(AUTEURS){statut=0minirezo}{par nom}{4/4}>
+									<li>
+										[<a href="[(#URL_AUTEUR)]" title="[(#BIO|couper{50}|attribut_html)]">(#NOM)]	</a>
+									</li>
+								</BOUCLE_cons4>
+							</ul>
+							</fieldset>
+							
+							
+		<INCLURE{fond=inc-footer}>		
+	</div><!-- id="wraperinner" -->
+</div><!-- id="wraper" -->
+</body>
+</html>

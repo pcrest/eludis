@@ -1,0 +1,15 @@
+
+
+.titre_art{	font-size: 120%;	margin-top: 10px;	margin-bottom: 0px;	margin-left: -5px;	text-align: center;}
+
+
+/************** Définitions des styles des contenus liés aux forums **************/
+
+#poster_complement{	text-align: center;	margin-top: 10px;	padding-top: 5px;	letter-spacing: 0.1em;}
+#remplir_form{	margin-top: 10px;	padding-top: 5px;font-weight: bold;	letter-spacing: 0.1em;	text-align: left;	margin-top: 10px;	}
+fieldset {	padding: 10px 10px 0px;}
+ul.choix_mots{
+	margin: 0px 0px 0px 1em;
+	padding: 0px;
+	list-style-type: Aucune;
+}

@@ -1,0 +1,10 @@
+#CACHE{0}
+<label for="cfg_#ENV{nom}">#ENV{label}</label><br />
+<select name="#ENV{nom}[]" multiple="multiple" size="5" id="cfg_#ENV{nom}" class="forml">
+<BOUCLE_a(ARTICLES){id_rubrique}{par num titre, titre}{0,5}>
+    <option value="#ID_ARTICLE"
+    [(#ID_ARTICLE|in_array{[(#CONFIG{[(#ENV{cfg_rep})]/[(#ENV{nom})],#ARRAY})]}|?{' selected="selected"'})]>
+      #TITRE
+    </option>
+</BOUCLE_a>
+</select>

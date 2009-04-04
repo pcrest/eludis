@@ -1,0 +1,61 @@
+<!-- descriptif=Fond de test inclusions et boucles pour le plugin de configuration cfg :
+boucle sur 3 rubriques racine et inclusion des champs de formulaire par &lt;INCLURE...&gt; 
+(5 articles dans la rubrique). 
+
+
+<br /><a href="../?page=test_cfg&var_mode=recalcul" class="spip_in">
+<multi>[fr]Retour page test publique
+[en]Back to public result page</multi></a>
+<:crayons:editer:> -->
+
+<!-- titre=Test boucles et inclusions pour le plugin cfg -->
+<!-- refus=Vous ne pouvez pas acceder &agrave; ce formulaire !
+<br />Vous devez &ecirc;tre administrateur et connect&eacute;.
+ -->
+
+<!-- liens*=cfg:testclassic -->
+<!-- liens*=cfg:testsimple -->
+<!-- liens*=cfg:testcasier -->
+<!-- liens*=cfg:testinclure -->
+<!-- liens*=cfg:testauteur -->
+<!-- liens*=cfg:extraarticles -->
+<!-- liens*=cfg:testmulti -->
+<!-- liens*=cfg:testphp -->
+<!-- liens*=cfg:testtable -->
+
+<!-- onglet=non -->
+<!-- boite=Test cfg -->
+
+
+#CACHE{0}
+#CFG_ARBO{testinclure}
+<form method="post" action="#SELF">[(#ENV{_cfg_}|form_hidden)]
+#ACTION_FORMULAIRE{#SELF,cfg}
+<fieldset><legend><:cfg:boucles_et_inclusions:></legend>
+<BOUCLE_racine(RUBRIQUES){racine}{par num titre}{0,3}>
+
+	<label for="cfg_bidule_rubrique_#ID_RUBRIQUE">#TITRE</label>
+	<select name="bidule_rubrique_#ID_RUBRIQUE" id="cfg_bidule_rubrique_#ID_RUBRIQUE" class="forml">
+		<option value="non"[ selected="(#CONFIG{testinclure/bidule_rubrique_#ID_RUBRIQUE}|=={non}|?{selected})"]><:non:></option>
+		<option value="oui"[ selected="(#CONFIG{testinclure/bidule_rubrique_#ID_RUBRIQUE}|=={oui}|?{selected})"]><:oui:></option>
+	</select>
+	
+	[(#CONFIG{testinclure/bidule_rubrique_#ID_RUBRIQUE}|=={oui}|?{' ',''})
+		<blockquote>
+		[(#INCLURE{fond=fonds/inc-articles-rubrique}
+				{nom=articles_rubrique_#ID_RUBRIQUE}
+				{label=Articles de #TITRE}
+				{cfg_rep=testinclure}
+				{id_rubrique})]
+		</blockquote>
+	]
+	<br />
+</BOUCLE_racine>
+</fieldset>
+
+
+
+<input type="submit" name="_cfg_ok" value="<:cfg:OK:>" />
+<input type="reset" value="<:cfg:Reset:>" />
+<input type="submit" name="_cfg_delete" value="<:cfg:Supprimer:>" />
+</form>
